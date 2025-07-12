@@ -61,6 +61,42 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/permissions/{user}', [UserController::class, 'assignPermissionToUser'])->name('user.assign-permission');
 
 
+    Route::controller(\App\Http\Controllers\PropertyTypeController::class)->prefix('property-types')->name('property-types.')->group(function(){
+       Route::get('/', 'index')->name('index');
+       Route::get('create', 'create')->name('create');
+       Route::post('store', 'store')->name('store');
+       Route::get('edit/{propertyType}', 'edit')->name('edit');
+       Route::post('update/{propertyType}', 'update')->name('update');
+       Route::post('destroy/{propertyType}', 'destroy')->name('destroy');
+    });
+
+
+    Route::controller(\App\Http\Controllers\CityController::class)->prefix('cities')->name('cities.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{city}', 'edit')->name('edit');
+        Route::post('update/{city}', 'update')->name('update');
+        Route::post('destroy/{city}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\PropertyController::class)->prefix('properties')->name('properties.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{property}', 'edit')->name('edit');
+        Route::post('update/{property}', 'update')->name('update');
+        Route::post('destroy/{property}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\AmenityController::class)->prefix('amenities')->name('amenities.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{amenity}', 'edit')->name('edit');
+        Route::post('update/{amenity}', 'update')->name('update');
+        Route::post('destroy/{amenity}', 'destroy')->name('destroy');
+    });
 
 
 

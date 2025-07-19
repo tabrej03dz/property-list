@@ -12,47 +12,79 @@
                 </div>
 
                 <!-- Navigation -->
-                <div class="hidden sm:flex sm:items-center sm:ms-10 text-sm font-medium text-gray-700 space-x-6" x-data="{ open: false }">
+                <div class="hidden sm:flex sm:items-center sm:ms-10 text-sm font-medium text-gray-700 space-x-6">
 
                     <!-- Dashboard (Outside Dropdown) -->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
                     </x-nav-link>
 
-                    <!-- Dropdown for Roles, Permissions, Users -->
-                    <div class="relative">
-                        <button @click="open = !open" class="flex items-center space-x-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md">
+                    <!-- Admin Tools Dropdown -->
+                    <div class="relative" x-data="{ openAdmin: false }">
+                        <button @click="openAdmin = !openAdmin" class="flex items-center space-x-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md">
                             <i class="fas fa-users-cog text-gray-600"></i>
                             <span>Admin Tools</span>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
 
-                        <div x-show="open" @click.away="open = false" x-cloak
-                            class="absolute z-50 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                        <div x-show="openAdmin" @click.away="openAdmin = false" x-cloak
+                             class="absolute z-50 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
 
                             @can('view permission')
-                            <x-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')" class="block px-4 py-2 text-left">
-                                <i class="fas fa-key mr-1"></i> Permissions
-                            </x-nav-link>
+                                <x-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')" class="block px-4 py-2 text-left">
+                                    <i class="fas fa-key mr-1"></i> Permissions
+                                </x-nav-link>
                             @endcan
 
                             @can('view roles')
-                            <x-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')" class="block px-4 py-2 text-left">
-                                <i class="fas fa-user-shield mr-1"></i> Roles
-                            </x-nav-link>
+                                <x-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')" class="block px-4 py-2 text-left">
+                                    <i class="fas fa-user-shield mr-1"></i> Roles
+                                </x-nav-link>
                             @endcan
 
                             @can('view users')
-                            <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')" class="block px-4 py-2 text-left">
-                                <i class="fas fa-users mr-1"></i> Users
-                            </x-nav-link>
+                                <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')" class="block px-4 py-2 text-left">
+                                    <i class="fas fa-users mr-1"></i> Users
+                                </x-nav-link>
                             @endcan
 
                         </div>
                     </div>
+
+                    <!-- Properties Dropdown -->
+                    <div class="relative" x-data="{ openProperties: false }">
+                        <button @click="openProperties = !openProperties" class="flex items-center space-x-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md">
+                            <i class="fas fa-building text-gray-600"></i>
+                            <span>Properties</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div x-show="openProperties" @click.away="openProperties = false" x-cloak
+                             class="absolute z-50 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+
+                            <x-nav-link :href="route('property-types.index')" :active="request()->routeIs('property-types.index')" class="block px-4 py-2 text-left">
+                                <i class="fas fa-layer-group mr-1"></i> Property Types
+                            </x-nav-link>
+
+                            <x-nav-link :href="route('cities.index')" :active="request()->routeIs('cities.index')" class="block px-4 py-2 text-left">
+                                <i class="fas fa-layer-group mr-1"></i> Cities
+                            </x-nav-link>
+
+                            <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')" class="block px-4 py-2 text-left">
+                                <i class="fas fa-layer-group mr-1"></i> Properties
+                            </x-nav-link>
+
+                            <x-nav-link :href="route('amenities.index')" :active="request()->routeIs('amenities.index')" class="block px-4 py-2 text-left">
+                                <i class="fas fa-layer-group mr-1"></i> Amenities
+                            </x-nav-link>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

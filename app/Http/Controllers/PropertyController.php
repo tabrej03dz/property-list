@@ -43,7 +43,6 @@ class PropertyController extends Controller
             'bathrooms' => 'nullable|integer',
             'area' => 'nullable|numeric',
             'built_in' => 'nullable|digits:4',
-            'listed_by' => 'required|exists:users,id',
 
             'amenities' => 'nullable|array',
             'amenities.*' => 'exists:amenities,id',
@@ -54,8 +53,17 @@ class PropertyController extends Controller
             'main_image_index' => 'nullable|integer|min:0',
         ]);
 
+        // Generate unique slug
+        $slug = Str::slug($request->title);
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (Property::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter++;
+        }
+
         // Create property
-        $property = Property::create($request->all() + ['slug' => Str::slug($request->title . '-' . uniqid())]);
+        $property = Property::create($request->except('images', 'amenities', 'main_image_index') + ['slug' => $slug, 'listed_by' => auth()->id()]);
 
         // Sync amenities
         $property->amenities()->sync($request->amenities ?? []);
@@ -85,6 +93,10 @@ class PropertyController extends Controller
         return view('properties.form', compact('property', 'propertyTypes', 'cities', 'amenities'));
     }
 
+    public function show(Property $property){
+        return view('properties.show', compact('property'));
+    }
+
     public function update(Request $request, Property $property)
     {
         $validated = $request->validate([
@@ -112,8 +124,25 @@ class PropertyController extends Controller
             'main_image_index' => 'nullable|integer|min:0',
         ]);
 
-        // Update basic info
-        $property->update($request->all() + ['slug' => Str::slug($request->title)]);
+        // Generate new slug only if title has changed
+        if ($request->title !== $property->title) {
+            $slug = Str::slug($request->title);
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (
+            Property::where('slug', $slug)
+                ->where('id', '!=', $property->id)
+                ->exists()
+            ) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
+
+            $property->slug = $slug;
+        }
+
+        // Update basic fields (excluding images and amenities)
+        $property->update($request->except('images', 'amenities', 'main_image_index'), ['listed_by' => auth()->id()]);
 
         // Sync amenities
         $property->amenities()->sync($request->amenities ?? []);

@@ -6,7 +6,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\RoleController;
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Response;
@@ -15,12 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('front.index');
-});
-Route::get('/contact', function () {
-    return view('front.contact');
-});
+// FRONTEND ROUTE::::::;;;\
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::get('/buy', [HomeController::class, 'buy'])->name('buy');
+Route::get('/rent', [HomeController::class, 'rent'])->name('rent');
+Route::get('/villa', [HomeController::class, 'villa'])->name('villa');
+Route::get('/land', [HomeController::class, 'land'])->name('land');
+Route::get('/commercial', [HomeController::class, 'commercial'])->name('commercial');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/detail', [HomeController::class, 'detail'])->name('detail');
+Route::get('/term', [HomeController::class, 'term'])->name('term');
+Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
+Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
+
+
+
 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth','verified'])->name('dashboard');

@@ -109,8 +109,7 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
-                                Rent</span>
+                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For Buy</span>
                             <span
                                 class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
@@ -139,8 +138,7 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
-                                Rent</span>
+                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For Buy</span>
                             <span
                                 class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
@@ -170,8 +168,7 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
-                                Rent</span>
+                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For Buy</span>
                             <span
                                 class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
@@ -208,7 +205,7 @@
     {{-- PROPERTY LISTING --}}
 
 
-    <section class="py-16 px-4 md:px-10 bg-blue-50">
+    <section class="md:py-16 py-4 px-4 md:px-10 bg-blue-50">
 
         <div class="max-w-9xl mx-auto">
 
@@ -226,13 +223,13 @@
                   <!-- Featured Tag -->
                   <div class=" my-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-4 rounded-xl shadow-lg flex items-center justify-between">
                     <div>
-                        <span class="inline-block bg-gold-500 text-blue-900 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Premium</span>
+                        <span class="inline-block bg-yellow-500 text-blue-900 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Premium</span>
                         <span class="text-sm md:text-base">Exclusive Listing</span>
                     </div>
                     <button class="text-xs font-semibold uppercase tracking-wide hover:underline">View All</button>
                 </div>
                 <!-- Property Cards Section -->
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1  lg:grid-cols-2 gap-6">
 
                     <!-- Repeat for 4 properties -->
                     <!-- Property Card -->

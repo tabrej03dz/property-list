@@ -15,9 +15,7 @@
         </div>
     </div>
 
-
-
-    <section class="max-w-9xl md:mx-24 p-4 md:py-12 bg-gray-50">
+    <section class="max-w-9xl lg:mx-24 p-4 md:py-12 bg-gray-50">
         <!-- Title -->
         <div class="mb-12 text-center">
             <h1
@@ -27,7 +25,7 @@
         </div>
 
         <!-- Grid Layout -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Villa Cards -->
             <!-- Repeat this block for each image -->
             <!-- You can put this inside a if using Laravel Blade -->
@@ -123,15 +121,15 @@
         class="absolute inset-0 w-full h-full object-cover z-0" />
 
     <!-- Contact Form Overlay -->
-    <div class="relative z-10 w-1/4/60 min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="relative z-10 w-1/4/60 h-auto lg:min-h-screen flex items-center justify-center px-4 py-12">
         <form
-            class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
+            class="bg-white/10 backdrop-blur-md p-6 my-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
 
             <!-- Heading -->
             <h2 class="text-2xl md:text-3xl text-white font-bold text-center"> Contact Us</h2>
 
             <!-- Form Fields -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
                 <!-- Name -->
                 <input type="text" placeholder="Your Name"
                     class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />

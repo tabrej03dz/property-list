@@ -39,7 +39,7 @@
     </div>
 
     <!-- Search Form -->
-    <div class="max-w-7xl container mx-auto px-4 md:-mt-16 relative z-10">
+    <div class="max-w-7xl container mx-auto px-4 my-12 md:-mt-16 relative z-10">
         <div class="bg-white shadow-xl rounded-lg overflow-hidden border border-cream-200">
             <div class="p-8 bg-blue ">
                 <h3 class="text-2xl font-serif text-white mb-6">Find Your Perfect Property</h3>
@@ -140,7 +140,7 @@
 
 
     <!-- Statement Section -->
-    <div class=" relative py-24 md:my-32 bg-blue overflow-hidden">
+    <div class=" relative  lg:my-20 py-8 bg-blue overflow-hidden">
         <div class="absolute inset-0">
             <img src="https://cdn.pixabay.com/photo/2017/07/03/21/45/house-2469110_1280.jpg"
                 class="w-full h-full object-cover opacity-20" alt="Luxury Home">
@@ -491,56 +491,57 @@
 
 
     {{-- PROPERTY PLACE --}}
-    <div class=" flex flex-col md:flex-row items-center gap-10 md:gap-16 p-6 md:p-12 my-12 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-3xl shadow-lg md:mx-24">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 px-4 sm:px-6 lg:px-24 py-10 sm:py-14 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-3xl shadow-xl my-12 mx-4 sm:mx-6 lg:mx-auto max-w-screen-xl">
 
         <!-- Image Section -->
-        <div class="w-full md:w-[45%]">
-            <div class="overflow-hidden rounded-2xl shadow-xl">
+        <div class="w-full md:w-1/2">
+            <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl shadow-xl">
                 <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/about.jpg" alt="Perfect Property"
-                    class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                    class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 ease-in-out" />
             </div>
         </div>
 
         <!-- Content Section -->
-        <div class="w-full md:w-[55%] text-center md:text-left">
-            <h2 class="text-4xl font-extrabold text-gray-900 leading-snug mb-4 tracking-tight">
+        <div class="w-full md:w-1/2 text-center md:text-left">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4 tracking-tight">
                 <span class="bg-gradient-to-r from-yellow-500 to-yellow-700 text-transparent bg-clip-text">
                     #1 Place
                 </span>
+                <br class="block md:hidden" />
                 To Find The Perfect Property
             </h2>
 
-            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p class="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
                 Discover the ideal property for your lifestyle. From elegant homes to modern apartments, our listings offer
                 unmatched value. Trust us to turn your dreams into an address.
             </p>
 
-            <ul class="space-y-4 text-base text-gray-800 mb-8">
+            <ul class="space-y-4 text-gray-800 text-sm sm:text-base mb-8">
                 <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Tempor erat elitr rebum at clita</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Aliqu diam amet diam et eos</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    <svg class="w-6 h-6 text-yellow-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Clita duo justo magna dolore erat amet</span>
                 </li>
             </ul>
 
             <button
-                class="bg-yellow-500 hover:bg-yellow-600 text-white text-base font-semibold px-6 py-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-105">
+                class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm sm:text-base font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg transition duration-300 hover:scale-105">
                 Read More
             </button>
         </div>
@@ -548,7 +549,7 @@
 
 
     {{-- slider --}}
-    <div class="flex flex-col items-center text-center px-4 py-8 md:py-16">
+    <div class="flex flex-col items-center text-center px-4 md:py-12">
         <!-- Heading -->
         <h1
             class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-700 via-blue-950 to-blue-400 drop-shadow-md">
@@ -565,7 +566,7 @@
         </p>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-12 group">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-8 group">
         <!-- Carousel container -->
         <div class="relative overflow-hidden">
             <!-- Track -->
@@ -941,7 +942,7 @@
 
 
     {{-- PROPERTY LISTING TABS --}}
-    <section class="bg-blue-50 px-4 md:px-12 md:py-16 mt-4">
+    <section class="bg-blue-50 px-4 lg:px-12 px-8 lg:py-16 mt-4">
         <div class="max-w-7xl mx-auto">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
@@ -958,13 +959,13 @@
                 </div>
 
                 <!-- Tab Buttons -->
-                <div class="flex gap-3">
+                <div class="flex space-x-1 lg:gap-3">
                     <button
-                        class="active tab-btn bg-yellow-50 text-gray-800 px-5 py-2 rounded-lg text-sm font-semibold shadow"
+                        class="active tab-btn bg-yellow-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="featured">Featured</button>
-                    <button class="tab-btn bg-yellow-50 text-gray-800 px-5 py-2 rounded-lg text-sm font-semibold shadow"
+                    <button class="tab-btn bg-yellow-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="sell">For Sell</button>
-                    <button class="tab-btn bg-yellow-50 text-gray-800 px-5 py-2 rounded-lg text-sm font-semibold shadow"
+                    <button class="tab-btn bg-yellow-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="rent">For Rent</button>
                 </div>
             </div>
@@ -1049,7 +1050,7 @@
             </div>
 
             <!-- Browse More Button -->
-            <div class="flex justify-center my-6">
+            <div class="flex justify-center my-6 pb-4">
                 <button class="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition">
                     Browse More Properties
                 </button>
@@ -1193,11 +1194,11 @@
 
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="tel:+1234567890"
-                        class="flex items-center justify-center bg-blue-700 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition duration-300 transform hover:scale-105">
+                        class="flex items-center justify-center bg-blue-700 hover:bg-blue-900 text-white font-semibold lg:px-6 lg:py-3 p-3 rounded-xl shadow-md transition duration-300 transform hover:scale-105">
                         📞 Make a Call
                     </a>
                     <a href="#appointment"
-                        class="flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition duration-300 transform hover:scale-105">
+                        class="flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white font-semibold lg:px-6 lg:py-3 p-3 rounded-xl shadow-md transition duration-300 transform hover:scale-105">
                         📅 Get Appointment
                     </a>
                 </div>
@@ -1221,7 +1222,7 @@
 
     {{-- PROPERTY AGENT --}}
 
-    <div class="max-w-7xl mx-auto md:my-24 px-4 py-8">
+    <div class="max-w-7xl mx-auto lg:my-24 px-4 py-8">
         <div class="text-center mb-10">
             <h1 class="text-4xl font-extrabold text-gray-800 mb-4">Meet Our Property Agents</h1>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -1330,15 +1331,15 @@
             class="absolute inset-0 w-full h-full object-cover z-0" />
 
         <!-- Contact Form Overlay -->
-        <div class="relative z-10 w-1/4/60 min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="relative z-10 w-1/4/60 h-auto lg:min-h-screen flex items-center justify-center px-4 lg:py-12">
             <form
-                class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
+                class="bg-white/10 backdrop-blur-md p-6 my-6 md:p-10 rounded-xl w-full max-w-6xl lg:space-y-6 shadow-xl border border-white/20">
 
                 <!-- Heading -->
                 <h2 class="text-2xl md:text-3xl text-white font-bold text-center"> Contact Us</h2>
 
                 <!-- Form Fields -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
                     <!-- Name -->
                     <input type="text" placeholder="Your Name"
                         class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />

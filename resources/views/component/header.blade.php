@@ -17,7 +17,7 @@
             <!-- Logo (Centered) -->
             <div class="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-0 md:transform-none">
                 <a href="/" class="flex items-center" aria-label="Home">
-                    <img src="{{ asset('asset/img/logo-w.png') }}" alt="Company Logo" class="h-10 w-auto md:h-24 py-3 transition-all duration-300 hover:scale-105">
+                    <img src="{{ asset('asset/img/logo-w.png') }}" alt="Company Logo" class="h-20 w-auto md:h-24 py-3 transition-all duration-300 hover:scale-105">
                 </a>
             </div>
 

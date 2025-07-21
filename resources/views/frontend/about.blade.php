@@ -16,7 +16,7 @@
     </div>
 
     {{-- Search Form --}}
-    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 md:-mt-12">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 md:-mt-12 my-12">
         <div class="bg-white rounded-xl shadow-lg px-6 py-8 md:py-10">
             <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Search Input -->
@@ -51,7 +51,7 @@
     </div>
 
     {{-- About Us --}}
-    <section class="bg-white py-20 px-4 sm:px-6 lg:px-12">
+    <section class="bg-white lg:py-20 px-4 sm:px-6 lg:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- Image Section -->
             <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
@@ -60,7 +60,7 @@
             </div>
 
             <!-- Text Section -->
-            <div>
+            <div class="py-4">
                 <h2 class="text-4xl font-bold text-blue-950 mb-6 text-center lg:text-left">Who We Are</h2>
                 <p class="text-gray-700 text-lg leading-relaxed text-center lg:text-left">
                     In today’s digital age, the real estate industry is rapidly evolving beyond traditional "word of mouth"
@@ -79,11 +79,11 @@
 
     <!-- Fonts (optional, for styling) -->
 
-    <section class="bg-blue-50 py-16 font-[Raleway]">
+    <section class="bg-blue-50 lg:py-16 font-[Raleway] py-8">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-blue-950 mb-12">What Our Clients Say</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
                 <!-- Testimonial Card 1 -->
                 <div
@@ -210,15 +210,15 @@
                 class="absolute inset-0 w-full h-full object-cover z-0" />
 
             <!-- Contact Form Overlay -->
-            <div class="relative z-10 w-1/4/60 min-h-screen flex items-center justify-center px-4 py-12">
+            <div class="relative z-10 w-1/4/60 h-auto lg:min-h-screen flex items-center justify-center px-4 py-12">
                 <form
-                    class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
+                    class="bg-white/10 backdrop-blur-md p-6 my-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
 
                     <!-- Heading -->
                     <h2 class="text-2xl md:text-3xl text-white font-bold text-center"> Contact Us</h2>
 
                     <!-- Form Fields -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
                         <!-- Name -->
                         <input type="text" placeholder="Your Name"
                             class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />

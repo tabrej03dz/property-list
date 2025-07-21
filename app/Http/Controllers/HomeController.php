@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
 use App\Models\Property;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,12 @@ class HomeController extends Controller
         return view('frontend.buy', compact('properties'));
     }
 
+
+    public function typedProperty($type){
+        $properties = Property::where('type', $type)->with('propertyType')->get();
+        return view('frontend.typed-property', compact('properties'));
+    }
+
     public function rent(){
         $properties = Property::where('type', 'rent')->get();
         return view('frontend.rent', compact('properties'));
@@ -32,6 +39,11 @@ class HomeController extends Controller
 
     public function villa(){
         return view('frontend.villa');
+    }
+
+    public function categoryProperties(PropertyType $propertyType){
+        $properties = $propertyType->properties;
+        return view('frontend.category-properties', compact('properties', 'propertyType'));
     }
 
     public function land(){
@@ -46,8 +58,9 @@ class HomeController extends Controller
         return view('frontend.blog');
     }
 
-    public function detail(){
-        return view('frontend.detail');
+    public function detail(Property $property){
+
+        return view('frontend.detail', compact('property'));
     }
 
     public function term(){

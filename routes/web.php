@@ -31,12 +31,13 @@ Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
 Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
 
+Route::post('contact/save', [HomeController::class, 'contactSave'])->name('contact.save');
+
 
 
 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth','verified'])->name('dashboard');
-
 
 
 
@@ -97,6 +98,7 @@ Route::middleware('auth')->group(function () {
         Route::get('create', 'create')->name('create');
         Route::post('store', 'store')->name('store');
         Route::get('edit/{property}', 'edit')->name('edit');
+        Route::get('show/{property}', 'show')->name('show');
         Route::post('update/{property}', 'update')->name('update');
         Route::post('destroy/{property}', 'destroy')->name('destroy');
     });
@@ -107,6 +109,12 @@ Route::middleware('auth')->group(function () {
         Route::post('store', 'store')->name('store');
         Route::get('edit/{amenity}', 'edit')->name('edit');
         Route::post('update/{amenity}', 'update')->name('update');
+        Route::post('destroy/{amenity}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\EnquiryController::class)->prefix('enquiries')->name('enquiries.')->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::post('status/{enquiry}', 'status')->name('status');
         Route::post('destroy/{amenity}', 'destroy')->name('destroy');
     });
 

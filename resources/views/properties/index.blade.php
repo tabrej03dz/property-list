@@ -54,6 +54,9 @@
                             <a href="{{ route('properties.edit', $property->id) }}"
                                class="text-blue-600 hover:underline mr-3">Edit</a>
 
+                            <a href="{{ route('properties.show', $property->id) }}"
+                               class="text-green-600 hover:underline mr-3">View</a>
+
                             <form action="{{ route('properties.destroy', $property->id) }}" method="POST"
                                   class="inline-block"
                                   onsubmit="return confirm('Are you sure you want to delete this property?');">

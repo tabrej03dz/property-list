@@ -82,8 +82,44 @@
                                 <i class="fas fa-layer-group mr-1"></i> Amenities
                             </x-nav-link>
 
+                            <x-nav-link :href="route('enquiries.index')" :active="request()->routeIs('enquiries.index')" class="block px-4 py-2 text-left">
+                                <i class="fas fa-layer-group mr-1"></i> Enquiries
+                            </x-nav-link>
+
                         </div>
                     </div>
+
+
+{{--                    <div class="relative" x-data="{ openEnquiries: false }">--}}
+{{--                        <button @click="openEnquiries = !openEnquiries" class="flex items-center space-x-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-md">--}}
+{{--                            <i class="fas fa-building text-gray-600"></i>--}}
+{{--                            <span>En</span>--}}
+{{--                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+{{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />--}}
+{{--                            </svg>--}}
+{{--                        </button>--}}
+
+{{--                        <div x-show="openEnquiries" @click.away="openEnquiries = false" x-cloak--}}
+{{--                             class="absolute z-50 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">--}}
+
+{{--                            <x-nav-link :href="route('property-types.index')" :active="request()->routeIs('property-types.index')" class="block px-4 py-2 text-left">--}}
+{{--                                <i class="fas fa-layer-group mr-1"></i> Property Types--}}
+{{--                            </x-nav-link>--}}
+
+{{--                            <x-nav-link :href="route('cities.index')" :active="request()->routeIs('cities.index')" class="block px-4 py-2 text-left">--}}
+{{--                                <i class="fas fa-layer-group mr-1"></i> Cities--}}
+{{--                            </x-nav-link>--}}
+
+{{--                            <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')" class="block px-4 py-2 text-left">--}}
+{{--                                <i class="fas fa-layer-group mr-1"></i> Properties--}}
+{{--                            </x-nav-link>--}}
+
+{{--                            <x-nav-link :href="route('amenities.index')" :active="request()->routeIs('amenities.index')" class="block px-4 py-2 text-left">--}}
+{{--                                <i class="fas fa-layer-group mr-1"></i> Amenities--}}
+{{--                            </x-nav-link>--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 </div>
             </div>

@@ -515,21 +515,23 @@
                 <!-- Contact Form -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-32">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Agent</h3>
-                    <form>
+                    <form action="{{route('contact.save')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="property_id" value="1">
                         <div class="mb-4">
-                            <input type="text" placeholder="Your Name"
+                            <input type="text" name="name" placeholder="Your Name"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
-                            <input type="email" placeholder="Email Address"
+                            <input type="email" name="email" placeholder="Email Address"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
-                            <input type="tel" placeholder="Phone Number"
+                            <input type="tel" name="phone" placeholder="Phone Number"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
-                            <textarea placeholder="Message" rows="4"
+                            <textarea placeholder="Message" name="message" rows="4"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                         </div>
                         <button type="submit"

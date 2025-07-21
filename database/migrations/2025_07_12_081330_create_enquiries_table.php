@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('enquiries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('property_id')->constrained('properties')->cascadeOnDelete();
+            $table->unsignedBigInteger('property_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->text('message')->nullable();
             $table->enum('status', ['pending', 'contacted', 'in_progress', 'closed', 'rejected']);
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('SET NULL');
             $table->timestamps();
         });
     }

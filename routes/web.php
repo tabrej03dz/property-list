@@ -31,12 +31,13 @@ Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
 Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
 
+Route::post('contact/save', [HomeController::class, 'contactSave'])->name('contact.save');
+
 
 
 
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth','verified'])->name('dashboard');
-
 
 
 

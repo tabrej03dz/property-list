@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Enquiry;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,11 +21,13 @@ class HomeController extends Controller
     }
 
     public function buy(){
-        return view('frontend.buy');
+        $properties = Property::where('type', 'sale')->get();
+        return view('frontend.buy', compact('properties'));
     }
 
     public function rent(){
-        return view('frontend.rent');
+        $properties = Property::where('type', 'rent')->get();
+        return view('frontend.rent', compact('properties'));
     }
 
     public function villa(){
@@ -60,6 +64,18 @@ class HomeController extends Controller
 
     public function disclaimer(){
         return view('frontend.disclaimer');
+    }
+
+    public function contactSave(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'nullable',
+            'message' => 'nullable',
+        ]);
+
+        Enquiry::create($request->all() + ['user_id' => auth()->check() ? auth()->id() : null]);
+        return back()->with('success', 'Form submitted successfully we contact you back soon!');
     }
 }
 

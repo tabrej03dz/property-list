@@ -1050,13 +1050,13 @@
                 <div class="property-card" data-category="featured">
                     <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden h-full flex flex-col">
                         <div class="relative flex-shrink-0">
-                            <a href="{{route('detail')}}">
+
                                 <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                     alt="Golden Urban House For Rent"
                                     class="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
                                     loading="lazy"
                                 />
-                            </a>
+                           
                             <div class="absolute top-3 left-3 flex flex-col gap-2">
                                 <span class="bg-blue-900 text-white text-xs font-semibold px-3 py-1 rounded shadow-md">For Rent</span>
                                 <span class="bg-white text-blue-900 text-xs font-semibold px-3 py-1 rounded shadow-md">Apartment</span>

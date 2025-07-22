@@ -23,10 +23,10 @@
                     Discover bespoke properties that redefine luxury living in the world's most exclusive locations.
                 </p>
                 <button
-                    class="bg-transparent border border-yellow-300 text-yellow-300 hover:bg-yellow-300 hover:text-gray-900
-                    transition-all duration-300 py-2 px-6 sm:py-3 sm:px-8 text-sm sm:text-base md:text-lg font-medium tracking-wide">
-                    EXPLORE COLLECTIONS
-                </button>
+                class="bg-transparent border-2 border-gold-300 text-gold-300 hover:bg-gold-300 hover:text-navy-900
+                transition-all duration-300 py-3 px-8 text-md md:text-lg font-medium tracking-wide">
+                EXPLORE COLLECTIONS
+            </button>
             </div>
         </div>
 
@@ -1056,7 +1056,7 @@
                                     class="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
                                     loading="lazy"
                                 />
-                           
+
                             <div class="absolute top-3 left-3 flex flex-col gap-2">
                                 <span class="bg-blue-900 text-white text-xs font-semibold px-3 py-1 rounded shadow-md">For Rent</span>
                                 <span class="bg-white text-blue-900 text-xs font-semibold px-3 py-1 rounded shadow-md">Apartment</span>

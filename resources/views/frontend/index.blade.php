@@ -1,42 +1,43 @@
 @extends('component.main')
 @section('content')
-    <!-- Hero Section -->
+
     <div class="relative w-full h-screen overflow-hidden">
         <!-- Background with subtle overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-navy-900 to-navy-800">
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-100">
             <img src="https://cdn.pixabay.com/photo/2023/01/29/18/28/dubai-7753826_1280.jpg" alt="Luxury Property"
                 class="w-full h-full object-cover opacity-70">
-            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent hover:bg-transparent">
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
         </div>
 
         <!-- Hero Content -->
-        <div class="relative h-full flex items-center justify-center px-4">
-            <div class="max-w-5xl text-center px-8 py-4 md:py-12 backdrop-blur-sm bg-black/50 rounded-xl border border-gold-300/20">
-                <h3 class="text:md sm:text-xl md:text-2xl font-light tracking-widest text-gold-300 mb-4">PRESENCE LUXURY REAL ESTATE
+        <div class="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div class="w-full max-w-5xl text-center px-4 py-8 sm:px-8 sm:py-12 md:py-16 backdrop-blur-sm bg-black/50 rounded-xl border border-yellow-300/20 mx-4">
+                <h3 class="text-xs sm:text-sm md:text-lg font-light tracking-widest text-yellow-300 mb-2 sm:mb-4">
+                    PRESENCE LUXURY REAL ESTATE
                 </h3>
-                <h1 class="text-2xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-                    Exceptional Properties <br>for Extraordinary Lives
+                <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 leading-snug sm:leading-tight">
+                    Exceptional Properties <span class="hidden sm:inline"><br></span> for Extraordinary Lives
                 </h1>
-                <div class="w-24 h-1 bg-gold-300 mx-auto my-6"></div>
-                <p class="text-md md:text-xl text-white/90 font-light max-w-2xl mx-auto mb-8">
+                <div class="w-16 sm:w-24 h-0.5 sm:h-1 bg-yellow-300 mx-auto my-4 sm:my-6"></div>
+                <p class="text-sm sm:text-base md:text-lg text-white/90 font-light max-w-xs sm:max-w-md md:max-w-2xl mx-auto mb-6 sm:mb-8">
                     Discover bespoke properties that redefine luxury living in the world's most exclusive locations.
                 </p>
                 <button
-                    class="bg-transparent border-2 border-gold-300 text-gold-300 hover:bg-gold-300 hover:text-navy-900
-                    transition-all duration-300 py-3 px-8 text-md md:text-lg font-medium tracking-wide">
+                    class="bg-transparent border border-yellow-300 text-yellow-300 hover:bg-yellow-300 hover:text-gray-900
+                    transition-all duration-300 py-2 px-6 sm:py-3 sm:px-8 text-sm sm:text-base md:text-lg font-medium tracking-wide">
                     EXPLORE COLLECTIONS
                 </button>
             </div>
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-8 h-8 text-gold-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
         </div>
     </div>
+
 
     <!-- Search Form -->
     <div class="max-w-7xl container mx-auto px-4 my-12 md:-mt-16 relative z-10">
@@ -1041,6 +1042,58 @@
                                         class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
                                         class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card" data-category="featured">
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden h-full flex flex-col">
+                        <div class="relative flex-shrink-0">
+                            <a href="{{route('detail')}}">
+                                <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
+                                    alt="Golden Urban House For Rent"
+                                    class="w-full h-60 object-cover hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="absolute top-3 left-3 flex flex-col gap-2">
+                                <span class="bg-blue-900 text-white text-xs font-semibold px-3 py-1 rounded shadow-md">For Rent</span>
+                                <span class="bg-white text-blue-900 text-xs font-semibold px-3 py-1 rounded shadow-md">Apartment</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <h2 class="text-xl font-semibold text-green-600 mb-1">$12,345<span class="text-sm font-normal text-gray-500">/month</span></h2>
+                            <a href="{{route('detail')}}" class="text-gray-800 font-medium mb-1 hover:text-blue-600 transition-colors">Golden Urban House</a>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">Modern apartment with stunning city views and premium amenities in the heart of the city.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <svg class="w-4 h-4 text-blue-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>123 Street, New York, USA</span>
+                            </div>
+                            <div class="mt-auto border-t pt-3">
+                                <div class="flex justify-between text-sm text-gray-700">
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                                        </svg>
+                                        1,000 Sqft
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                        </svg>
+                                        3 Beds
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                        2 Baths
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

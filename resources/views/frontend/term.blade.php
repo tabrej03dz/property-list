@@ -11,7 +11,7 @@
         <div class="flex justify-center space-x-2 py-2">
             <p class="text-white hover:underline"> <a href="/">Home</p></a>
             <p class="text-white">/</p>
-            <p class="text-white hover:underline"><a href="{{route('term')}}">Term</p></a>
+            <p class="text-white hover:underline"><a href="{{route('term'/')}}">Term</p></a>
         </div>
     </div>
 </div>

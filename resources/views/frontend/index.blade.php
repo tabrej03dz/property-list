@@ -11,7 +11,7 @@
 
         <!-- Hero Content -->
         <div class="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
-            <div class="w-full max-w-5xl text-center px-4 py-8 sm:px-8 sm:py-12 md:py-16 backdrop-blur-sm bg-black/50 rounded-xl border border-yellow-300/20 mx-4">
+            <div class="w-full max-w-5xl text-center px-4 py-8 sm:px-8 sm:py-12 md:py-16 backdrop-blur-sm bg-black/50 rounded-xl border border-yellow-300 mx-4">
                 <h3 class="text-xs sm:text-sm md:text-lg font-light tracking-widest text-yellow-300 mb-2 sm:mb-4">
                     PRESENCE LUXURY REAL ESTATE
                 </h3>

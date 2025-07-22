@@ -32,13 +32,13 @@
         <!-- Desktop Navigation Bar -->
         <div class="hidden md:flex justify-center items-center md:py-1 border-t border-blue-100">
             <div class="flex space-x-1">
-                <a href="{{route('buy')}}" class="px-5 py-2 text-blue-900 hover:bg-blue-100 rounded-lg font-medium transition-all flex items-center">
+                <a href="{{route('typed-property', 'sale')}}" class="px-5 py-2 text-blue-900 hover:bg-blue-100 rounded-lg font-medium transition-all flex items-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                     </svg>
                     Buy
                 </a>
-                <a href="{{route('rent')}}" class="px-5 py-2 text-blue-900 hover:bg-blue-100 rounded-lg font-medium transition-all flex items-center">
+                <a href="{{route('typed-property', 'rent')}}" class="px-5 py-2 text-blue-900 hover:bg-blue-100 rounded-lg font-medium transition-all flex items-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
                     </svg>
@@ -57,24 +57,29 @@
                         </svg>
                     </button>
                     <div class="absolute left-0 mt-1 w-56 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-blue-50 z-50">
-                        <a href="{{route('villa')}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">
-                            <svg class="w-4 h-4 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                            </svg>
-                            Villa
-                        </a>
-                        <a href="{{route('land')}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">
-                            <svg class="w-4 h-4 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                            </svg>
-                            Land
-                        </a>
-                        <a href="{{route('commercial')}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">
-                            <svg class="w-4 h-4 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                            </svg>
-                            Commercial
-                        </a>
+                        @php
+                            $propertyTypes = \App\Models\PropertyType::all();
+                        @endphp
+                        @foreach($propertyTypes as $propertyType)
+                            <a href="{{route('category-properties', $propertyType)}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">
+                                <svg class="w-4 h-4 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                                {{$propertyType->title}}
+                            </a>
+                        @endforeach
+{{--                        <a href="{{route('land')}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">--}}
+{{--                            <svg class="w-4 h-4 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+{{--                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>--}}
+{{--                                </svg>--}}
+{{--                            Land--}}
+{{--                        </a>--}}
+{{--                        <a href="{{route('commercial')}}" class="block px-5 py-2 text-sm text-blue-900 hover:bg-blue-50 transition-colors flex items-center">--}}
+{{--                            <svg class="w-4 h-4 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">--}}
+{{--                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>--}}
+{{--                            </svg>--}}
+{{--                            Commercial--}}
+{{--                        </a>--}}
                     </div>
                 </div>
 

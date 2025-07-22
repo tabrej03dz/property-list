@@ -7,9 +7,9 @@
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="container mx-auto px-4 h-full flex items-end pb-6 relative">
                 <div>
-                    <h1 class="text-3xl md:text-5xl font-bold text-white">Luxury Modern Villa</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold text-white">{{$property->title}}</h1>
                     <p class="text-lg text-white mt-1 flex items-center">
-                        <i class="fas fa-map-marker-alt mr-2"></i>123 Coastal Drive, Malibu, CA 90265
+                        <i class="fas fa-map-marker-alt mr-2"></i>{{$property->address}}
                     </p>
                 </div>
             </div>
@@ -24,36 +24,36 @@
                 <!-- Price & Quick Facts -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                        <h2 class="text-3xl font-bold text-gray-800">$3,850,000</h2>
+                        <h2 class="text-3xl font-bold text-gray-800">{{number_format($property->price)}}</h2>
                         <div class="flex space-x-4 mt-2 md:mt-0">
                             <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-bed mr-1"></i> 5 Beds
+                                <i class="fas fa-bed mr-1"></i> {{$property->bedrooms}} Bedrooms
                             </span>
                             <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-bath mr-1"></i> 4.5 Baths
+                                <i class="fas fa-bath mr-1"></i> {{$property->bathrooms}} Baths
                             </span>
                             <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-ruler-combined mr-1"></i> 4,200 sqft
+                                <i class="fas fa-ruler-combined mr-1"></i> {{$property->area}} sqft
                             </span>
                         </div>
                     </div>
                     <div class="border-t border-b border-gray-200 py-4 my-4">
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+{{--                            <div>--}}
+{{--                                <p class="text-gray-500 text-sm">Type</p>--}}
+{{--                                <p class="font-medium">Single-Family</p>--}}
+{{--                            </div>--}}
                             <div>
-                                <p class="text-gray-500 text-sm">Type</p>
-                                <p class="font-medium">Single-Family</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-sm">Year Built</p>
-                                <p class="font-medium">2020</p>
+                                <p class="text-gray-500 text-sm">Built In</p>
+                                <p class="font-medium">{{$property->built_in}}</p>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-sm">Garage</p>
-                                <p class="font-medium">2 Cars</p>
+                                <p class="font-medium">0 Cars</p>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-sm">Lot Size</p>
-                                <p class="font-medium">0.5 Acres</p>
+                                <p class="font-medium">{{$property->area}} Acres</p>
                             </div>
                         </div>
                     </div>
@@ -67,44 +67,29 @@
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Property Description</h3>
                     <p class="text-gray-700 mb-4">
-                        Experience breathtaking ocean views from this stunning modern villa in Malibu. Designed with sleek
-                        architecture and premium finishes, this home offers an open-concept living space, floor-to-ceiling
-                        windows, and a seamless indoor-outdoor flow.
+                        {{$property->description}}
                     </p>
-                    <p class="text-gray-700">
-                        The property features a gourmet chef's kitchen, infinity pool with spa, smart home automation, and a
-                        private home theater. Perfect for luxury living and entertaining.
-                    </p>
+{{--                    <p class="text-gray-700">--}}
+{{--                        The property features a gourmet chef's kitchen, infinity pool with spa, smart home automation, and a--}}
+{{--                        private home theater. Perfect for luxury living and entertaining.--}}
+{{--                    </p>--}}
                 </div>
 
                 <!-- Features -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Features</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Infinity Pool & Spa</span>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Smart Home Technology</span>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Home Theater & Wine Cellar</span>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Ocean View Deck with BBQ</span>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Gourmet Chef's Kitchen</span>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                            <span class="text-gray-700">Private Beach Access</span>
-                        </div>
+                        @foreach($property->amenities as $amenity)
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span class="text-gray-700">{{$amenity->name}}</span>
+                            </div>
+                        @endforeach
+{{--                        <div class="flex items-start">--}}
+{{--                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>--}}
+{{--                            <span class="text-gray-700">Smart Home Technology</span>--}}
+{{--                        </div>--}}
+
                     </div>
                 </div>
 
@@ -112,30 +97,17 @@
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Gallery</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Living Room" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Kitchen" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Pool" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Bedroom" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Bathroom" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                alt="Deck" class="w-full h-full object-cover">
-                        </div>
+                        @foreach($property->images as $image)
+                            <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">
+                                <img src="{{asset('storage/'. $image->url)}}"
+                                     alt="Living Room" class="w-full h-full object-cover">
+                            </div>
+                        @endforeach
+{{--                        <div class="h-40 bg-gray-200 rounded-lg overflow-hidden">--}}
+{{--                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"--}}
+{{--                                alt="Kitchen" class="w-full h-full object-cover">--}}
+{{--                        </div>--}}
+{{--                        --}}
                     </div>
                     <!-- View More Button -->
                     <div class="flex justify-center py-4 w-full">
@@ -498,11 +470,22 @@
                 <!-- Location Map -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Location</h3>
+{{--                    <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">--}}
+{{--                        <iframe class="w-full h-64"--}}
+{{--                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.037069764355!2d-118.6764079243286!3d34.0389440731556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82d5f1a1dc0a3%3A0x6b0b671b3c7e7a1e!2sMalibu%2C%20CA%2090265!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus"--}}
+{{--                            frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>--}}
+{{--                    </div>--}}
                     <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
-                        <iframe class="w-full h-64"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.037069764355!2d-118.6764079243286!3d34.0389440731556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82d5f1a1dc0a3%3A0x6b0b671b3c7e7a1e!2sMalibu%2C%20CA%2090265!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus"
-                            frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe
+                            class="w-full h-64"
+                            src="https://www.google.com/maps?q={{ urlencode($property->address) }}&output=embed"
+                            frameborder="0"
+                            style="border:0;"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
                     </div>
+
 
                 </div>
 
@@ -517,7 +500,7 @@
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Agent</h3>
                     <form action="{{route('contact.save')}}" method="post">
                         @csrf
-                        <input type="hidden" name="property_id" value="1">
+                        <input type="hidden" name="property_id" value="{{$property->id}}">
                         <div class="mb-4">
                             <input type="text" name="name" placeholder="Your Name"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">

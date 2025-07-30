@@ -11,14 +11,14 @@
         <div class="flex justify-center space-x-2 py-2">
             <p class="text-white hover:underline"> <a href="/">Home</p></a>
             <p class="text-white">/</p>
-            <p class="text-white hover:underline"><a href="{{route('term'/')}}">Term</p></a>
+            <p class="text-white hover:underline"><a href="{{route('term')}}">Term</p></a>
         </div>
     </div>
 </div>
 
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto p-6 mt-10">
-    <h2 class="text-3xl font-bold text-blue-900 mb-4 border-b-4 border-yellow-400 inline-block pb-1">Terms and Conditions</h2>
+    <h2 class="text-3xl font-bold text-[#449FC3] mb-4 border-b-4 border-black inline-block pb-1">Terms and Conditions</h2>
     <p class="text-lg text-gray-700 mb-6">
       These terms and conditions outline the rules and regulations for the use of Real Victory Estates's Website.
     </p>

@@ -19,7 +19,7 @@
 
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto p-6 mt-10">
-    <h2 class="text-3xl font-bold text-blue-900 mb-4 border-b-4 border-yellow-400 inline-block pb-1">Disclaimer</h2>
+    <h2 class="text-3xl font-bold text-[#449FC3] mb-4 border-b-4 border-black inline-block pb-1">Disclaimer</h2>
     <p class="text-lg text-gray-700 mb-6">
       The information provided by Real Victory Estates (“we,” “us” or “our”) on this website is for general informational purposes only.
     </p>

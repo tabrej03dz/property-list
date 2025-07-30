@@ -11,25 +11,25 @@
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
     a:focus, button:focus {
-      outline: 2px solid rgba(14,165,233,0.5);
+      outline: 2px solid #fcfcfc
       outline-offset: 2px;
     }
   </style>
 </head>
 <body class="font-sans antialiased text-gray-900 bg-white">
-  <nav id="mainNav" class="fixed w-full z-50 nav-transition bg-gradient-to-r from-blue-50 to-sky-50 bg-opacity-45 shadow-sm">
+  <nav id="mainNav" class="fixed w-full z-50 nav-transition bg-gradient-to-r from-[#459FC2] to-sky-50 bg-opacity-45 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="hidden md:flex items-center space-x-4">
-          <a href="#" class="px-3 py-2 text-blue-900 hover:bg-blue-100/50 rounded-lg font-medium flex items-center">
+          <a href="{{route('buy')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-home-4-line mr-2"></i> Buy
           </a>
-          <a href="#" class="px-3 py-2 text-blue-900 hover:bg-blue-100/50 rounded-lg font-medium flex items-center">
+          <a href="{{route('rent')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-community-line mr-2"></i> Rent
           </a>
         </div>
         <div class="md:hidden">
-          <button id="menu-toggle" class="text-blue-900 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
+          <button id="menu-toggle" class="text-red-900 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
             <svg id="menu-open-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16"/>
@@ -49,36 +49,36 @@
         </div>
         <div class="hidden md:flex items-center space-x-4">
           <div class="relative group">
-            <button class="px-3 py-2 text-blue-900 hover:bg-blue-100/50 rounded-lg font-medium flex items-center">
+            <button class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
               <i class="ri-apps-2-line mr-2"></i> Categories
               <i class="ri-arrow-down-s-line ml-1 transition-transform group-hover:rotate-180"></i>
             </button>
             <div class="absolute left-0 mt-1 w-56 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100 z-50">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
-                <i class="ri-home-3-line mr-3 text-blue-500"></i> Villas
+              <a href="{{route('villa')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
+                <i class="ri-home-3-line mr-3 text-red-500"></i> Villas
               </a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
+              <a href="{{route('land')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
                 <i class="ri-map-pin-line mr-3 text-emerald-500"></i> Land
               </a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
+              <a href="{{route('commercial')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
                 <i class="ri-building-2-line mr-3 text-purple-500"></i> Commercial
               </a>
             </div>
           </div>
-          <a href="#" class="px-3 py-2 text-blue-900 hover:bg-blue-100/50 rounded-lg font-medium flex items-center">
+          <a href="{{route('about')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-information-line mr-2"></i> About
           </a>
-          <a href="#" class="px-4 py-2 bg-blue-700 text-white rounded-lg text-sm font-semibold hover:bg-blue-600 shadow-sm flex items-center">
+          <a href="{{route('contact')}}" class="px-4 py-2 bg-red-800 text-white rounded-lg text-sm font-semibold hover:bg-red-900 shadow-sm flex items-center">
             <i class="ri-phone-line mr-2"></i> Contact
           </a>
         </div>
       </div>
 
       <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-b-lg px-4 py-3 transform origin-top transition-all duration-300 ease-out">
-        <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
+        <a href="{{route('buy')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
           <i class="ri-home-4-line mr-3"></i> Buy
         </a>
-        <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
+        <a href="{{route('rent')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
           <i class="ri-community-line mr-3"></i> Rent
         </a>
         <div>
@@ -89,21 +89,21 @@
             <i id="mobile-category-arrow" class="ri-arrow-down-s-line transition-transform"></i>
           </button>
           <div id="mobile-category-menu" class="pl-12 mt-1 space-y-1 hidden">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
-              <i class="ri-home-3-line mr-3 text-blue-500"></i> Villas
+            <a href="{{route('villa')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
+              <i class="ri-home-3-line mr-3 text-red-500"></i> Villas
             </a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
+            <a href="{{route('land')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
               <i class="ri-map-pin-line mr-3 text-emerald-500"></i> Land
             </a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
+            <a href="{{route('commercial')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
               <i class="ri-building-2-line mr-3 text-purple-500"></i> Commercial
             </a>
           </div>
         </div>
-        <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
+        <a href="{{route('about')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
           <i class="ri-information-line mr-3"></i> About
         </a>
-        <a href="#" class="block px-4 py-3 bg-[#459FC2] text-white rounded-lg text-center font-medium hover:bg-blue-700 flex items-center justify-center">
+        <a href="{{route('contact')}}" class="block px-4 py-3 bg-red-800 text-white rounded-lg text-center font-medium hover:bg-red-900 flex items-center justify-center">
           <i class="ri-phone-line mr-3"></i> Contact Us
         </a>
       </div>
@@ -123,10 +123,10 @@
 
       function updateHeader() {
         if (window.scrollY > 10) {
-          mainNav.classList.remove('bg-gradient-to-r', 'from-blue-50', 'to-sky-500', 'bg-opacity-45');
+          mainNav.classList.remove('bg-gradient-to-r', 'from-sky-50', 'to-sky-50', 'bg-opacity-45');
           mainNav.classList.add('bg-white', 'shadow-md');
         } else {
-          mainNav.classList.add('bg-gradient-to-r', 'from-blue-50', 'to-sky-500', 'bg-opacity-45');
+          mainNav.classList.add('bg-gradient-to-r', 'from-sky-50', 'to-sky-50', 'bg-opacity-45');
           mainNav.classList.remove('bg-white', 'shadow-md');
         }
       }

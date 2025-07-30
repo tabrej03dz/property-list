@@ -37,7 +37,7 @@
                 </select>
 
                 <button type="submit"
-                    class="w-full bg-blue-950 text-white font-semibold py-3 rounded-md hover:bg-blue-900 transition duration-200">
+                    class="w-full bg-[#449FC3] text-white font-semibold py-3 rounded-md hover:bg-sky-900 transition duration-200">
                     🔍 Search Here
                 </button>
             </form>
@@ -81,20 +81,20 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name -->
                         <input type="text" placeholder="Your Name"
-                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" />
 
                         <!-- Email -->
                         <input type="email" placeholder="Your Email"
-                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" />
                     </div>
 
                     <!-- Message -->
                     <textarea rows="4" placeholder="Your Message"
-                        class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none"></textarea>
+                        class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400 resize-none"></textarea>
 
                     <!-- Consent -->
                     <div class="flex items-start gap-3">
-                        <input type="checkbox" class="mt-1 text-yellow-400 focus:ring-yellow-400" />
+                        <input type="checkbox" class="mt-1 text-sky-400 focus:ring-sky-400" />
                         <p class="text-sm text-white leading-snug">
                             By submitting this form, you agree to our Privacy Policy and consent to receive communication, which may include automated emails, texts, or calls. You can opt out at any time.
                         </p>
@@ -103,7 +103,7 @@
                     <!-- Submit Button -->
                     <div class="text-center">
                         <button type="submit"
-                            class="px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-950 font-bold rounded-md transition duration-300 shadow-md">
+                            class="px-8 py-3 bg-[#449FC3] hover:bg-sky-600 text-white font-bold rounded-md transition duration-300 shadow-md">
                             Send Message
                         </button>
                     </div>

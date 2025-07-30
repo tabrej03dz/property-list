@@ -19,7 +19,7 @@
 
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto p-6 mt-10">
-    <h2 class="text-3xl font-bold text-blue-900 mb-4 border-b-4 border-yellow-400 inline-block pb-1">Refund Policy</h2>
+    <h2 class="text-3xl font-bold text-[#449FC3] mb-4 border-b-4 border-black inline-block pb-1">Refund Policy</h2>
     <p class="text-lg text-gray-700 mb-6">
       At Real Victory Estates, we strive to provide high-quality services and ensure customer satisfaction. However, we understand there may be circumstances where refunds are required. Please read our refund policy carefully.
     </p>

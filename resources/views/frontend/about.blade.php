@@ -21,11 +21,11 @@
             <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Search Input -->
                 <input type="text" placeholder="Search"
-                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500" />
 
                 <!-- Property Type -->
                 <select
-                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
                     <option disabled selected>Property Type</option>
                     <option>Villa</option>
                     <option>Apartment</option>
@@ -34,7 +34,7 @@
 
                 <!-- Location -->
                 <select
-                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
                     <option disabled selected>Location</option>
                     <option>Location1</option>
                     <option>Chennai</option>
@@ -43,7 +43,7 @@
 
                 <!-- Search Button -->
                 <button type="submit"
-                    class="w-full bg-blue-950 text-white font-semibold py-3 rounded-md hover:bg-blue-900 transition duration-200">
+                    class="w-full bg-[#449FC3] text-white font-semibold py-3 rounded-md hover:bg-sky-900 transition duration-200">
                     Search Here
                 </button>
             </form>
@@ -61,11 +61,11 @@
 
             <!-- Text Section -->
             <div class="py-4">
-                <h2 class="text-4xl font-bold text-blue-950 mb-6 text-center lg:text-left">Who We Are</h2>
+                <h2 class="text-4xl font-bold text-sky-950 mb-6 text-center lg:text-left">Who We Are</h2>
                 <p class="text-gray-700 text-lg leading-relaxed text-center lg:text-left">
                     In today’s digital age, the real estate industry is rapidly evolving beyond traditional "word of mouth"
                     and local networks.
-                    <strong class="text-blue-900">Realestate.Com</strong> stands as a reliable gateway for buyers, sellers,
+                    <strong class="text-sky-900">Realestate.Com</strong> stands as a reliable gateway for buyers, sellers,
                     and investors navigating the e-real estate world.
                     <br><br>
                     With a pulse on the latest market trends and a growing network of active users, our platform simplifies
@@ -79,9 +79,9 @@
 
     <!-- Fonts (optional, for styling) -->
 
-    <section class="bg-blue-50 lg:py-16 font-[Raleway] py-8">
+    <section class="bg-[#449FC3]/20 lg:py-16 font-[Raleway] py-8">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-blue-950 mb-12">What Our Clients Say</h2>
+            <h2 class="text-4xl font-bold text-center text-sky-950 mb-12">What Our Clients Say</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
@@ -98,7 +98,7 @@
                             <span class="text-yellow-400 text-3xl absolute -right-3 -bottom-3">”</span>
                         </p>
                         <div class="mt-2">
-                            <h4 class="text-blue-950 font-bold text-sm uppercase">Pelican Steve</h4>
+                            <h4 class="text-sky-950 font-bold text-sm uppercase">Pelican Steve</h4>
                             <span class="text-xs text-gray-400">LittleSnippets</span>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <span class="text-yellow-400 text-3xl absolute -right-3 -bottom-3">”</span>
                         </p>
                         <div class="mt-2">
-                            <h4 class="text-blue-950 font-bold text-sm uppercase">Max Conversion</h4>
+                            <h4 class="text-sky-950 font-bold text-sm uppercase">Max Conversion</h4>
                             <span class="text-xs text-gray-400">LittleSnippets</span>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                          <span class="text-yellow-400 text-3xl absolute -right-3 -bottom-3">”</span>
                      </p>
                      <div class="mt-2">
-                         <h4 class="text-blue-950 font-bold text-sm uppercase">Pelican Steve</h4>
+                         <h4 class="text-sky-950 font-bold text-sm uppercase">Pelican Steve</h4>
                          <span class="text-xs text-gray-400">LittleSnippets</span>
                      </div>
                  </div>
@@ -204,55 +204,6 @@
 
     {{-- contact --}}
         {{-- let's connect form  --}}
-    <div class="relative w-full min-h-full">
-            <!-- Background Image -->
-            <img src="{{ asset('asset/img/image1.jpg') }}" alt="Background"
-                class="absolute inset-0 w-full h-full object-cover z-0" />
-
-            <!-- Contact Form Overlay -->
-            <div class="relative z-10 w-1/4/60 h-auto lg:min-h-screen flex items-center justify-center px-4 py-12">
-                <form
-                    class="bg-white/10 backdrop-blur-md p-6 my-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
-
-                    <!-- Heading -->
-                    <h2 class="text-2xl md:text-3xl text-white font-bold text-center"> Contact Us</h2>
-
-                    <!-- Form Fields -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
-                        <!-- Name -->
-                        <input type="text" placeholder="Your Name"
-                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />
-
-                        <!-- Email -->
-                        <input type="email" placeholder="Your Email"
-                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" />
-
-                        <!-- Message -->
-                        <textarea rows="1" placeholder="Your Message"
-                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none md:col-span-1 lg:col-span-1"></textarea>
-
-                        <!-- Submit Button -->
-                        <button type="submit"
-                            class="w-full bg-yellow-400 text-blue-950 font-semibold py-3 rounded-md hover:bg-yellow-300 transition">
-                            Send Message
-                        </button>
-                    </div>
-
-                    <!-- Consent Note -->
-                    <div class="flex items-start gap-3 pt-4">
-                        <input type="checkbox" class="mt-1" />
-                        <p class="text-white text-sm leading-snug">
-                            By providing Brandon Piller your contact information, you acknowledge and agree to our Privacy
-                            Policy and
-                            consent to receiving marketing communications, including through automated calls, texts, and emails,
-                            some of
-                            which may use artificial or prerecorded voices. This consent isn’t necessary for purchasing any
-                            products or
-                            services and you may opt out at any time.
-                        </p>
-                    </div>
-                </form>
-            </div>
-    </div>
+   @include('frontend.contact-form')
 
 @endsection

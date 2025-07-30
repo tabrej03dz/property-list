@@ -4,8 +4,8 @@
       <!-- Company Overview -->
       <div>
         {{-- <h1 class="text-3xl sm:text-4xl font-extrabold text-yellow-400 mb-4 tracking-wide">RVG GROUP</h1>--}}
-<img src="{{asset('asset/img/logo1.png')}}" alt="">
-        <p class="text-black text-sm leading-relaxed">
+<img src="{{asset('asset/img/logo1.png')}}" alt="" class="m-2">
+        <p class="text-black text-sm leading-relaxed p-2">
           RVG Group is a full-service luxury real estate brokerage redefining the global real estate experience.
           With a world-class portfolio, innovative strategies, and unmatched client service, we elevate the art
           of buying, selling, and leasing luxury properties across the globe.

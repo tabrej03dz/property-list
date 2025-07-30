@@ -3,7 +3,7 @@
 
  {{-- Banner --}}
  <div class="w-full h-[300px] md:h-[400px] relative">
-    <img src="{{ asset('asset/img/image1.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
+    <img src="{{ asset('asset/img/banner.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
     <div class="absolute inset-0 top-0 left-0 right-0 bg-black/50 items-center text-center pt-32">
         <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">
             Find Your Dream Property

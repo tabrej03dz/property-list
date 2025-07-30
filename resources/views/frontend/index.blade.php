@@ -33,7 +33,7 @@
 
                 <button
                     class="bg-transparent border-2 border-yellow-400 text-yellow-300 hover:bg-yellow-500 hover:text-white transition-all duration-300 py-3 px-8 text-md md:text-lg font-medium tracking-wide">
-                    EXPLORE COLLECTIONS
+                   <a href="{{route('blog')}}"> EXPLORE COLLECTIONS</a>
                 </button>
 
             </div>
@@ -963,7 +963,7 @@
 
     {{-- PROPERTY LISTING TABS --}}
     <section class="bg-[#459FC2]/10 px-4 lg:px-12 px-8 lg:py-16 mt-4">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto py-12">
             <!-- Header -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
                 <div>
@@ -981,13 +981,13 @@
                 <!-- Tab Buttons -->
                 <div class="flex space-x-1 lg:gap-3">
                     <button
-                        class="active tab-btn bg-sky-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
+                        class="active tab-btn bg-[#449FC3] text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="featured">Featured</button>
                     <button
-                        class="tab-btn bg-sky-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
+                        class="tab-btn bg-[#449FC3] text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="sell">For Sell</button>
                     <button
-                        class="tab-btn bg-sky-50 text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
+                        class="tab-btn bg-[#449FC3] text-gray-800 lg:px-5 lg:py-2 p-2 rounded-lg lg:text-sm text-xs font-semibold shadow"
                         data-tab="rent">For Rent</button>
                 </div>
             </div>
@@ -1157,9 +1157,9 @@
                 tab.addEventListener('click', () => {
                     const category = tab.getAttribute('data-tab');
 
-                    tabs.forEach(btn => btn.classList.remove('active', 'bg-blue-600',
+                    tabs.forEach(btn => btn.classList.remove('active', 'bg-sky-600',
                         'text-white'));
-                    tab.classList.add('active', 'bg-blue-600', 'text-white');
+                    tab.classList.add('active', 'bg-sky-600', 'text-white');
 
                     cards.forEach(card => {
                         card.style.display = (category === 'featured' || card.getAttribute(

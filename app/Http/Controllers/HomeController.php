@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $propertyTypes = PropertyType::all();
+        return view('frontend.index', compact('propertyTypes'));
     }
 
     public function about(){
@@ -27,10 +28,46 @@ class HomeController extends Controller
     }
 
 
-    public function typedProperty($type){
-        $properties = Property::where('type', $type)->with('propertyType')->get();
-        return view('frontend.typed-property', compact('properties'));
+    public function typedProperty(Request $request, $type = null)
+    {
+        $query = Property::query()->with('propertyType');
+        $recommendations = null;
+
+        // Type filter (from route param or form input)
+        $finalType = $type ?? $request->type;
+        if ($finalType) {
+            $query->where('type', $finalType);
+            $recommendations = Property::where('type', $finalType)->get();
+
+        }
+
+        // Property type filter
+        if ($request->filled('property_type_id')) {
+            $query->where('property_type_id', $request->property_type_id);
+            $recommendations = Property::where('property_type_id', $request->property_type_id)->get();
+        }
+
+        // Location filter (partial match)
+        if ($request->filled('location')) {
+            $query->where('address', 'like', '%' . $request->location . '%');
+        }
+
+        // Price range filters
+        if ($request->filled('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+        if ($request->filled('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
+        // Bedrooms filter
+        if ($request->filled('bedrooms')) {
+            $query->where('bedrooms', '>=', $request->bedrooms);
+        }
+        $properties = $query->get();
+        return view('frontend.typed-property', compact('properties', 'recommendations'));
     }
+
 
     public function rent(){
         $properties = Property::where('type', 'rent')->get();

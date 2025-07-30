@@ -15,9 +15,9 @@
         </div>
     </div>
 
-<<<<<<< HEAD
+
     <section class="max-w-9xl lg:mx-24 p-4 md:py-12 bg-gray-50">
-=======
+
     <!-- Show All Validation Errors -->
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md">
@@ -30,7 +30,7 @@
     @endif
 
     <section class="max-w-9xl md:mx-24 p-4 md:py-12 bg-gray-50">
->>>>>>> cf58eee5af7ad868e1b1965ad0f4e942ec9ae57f
+
         <!-- Title -->
         <div class="mb-12 text-center">
             <h1
@@ -136,16 +136,16 @@
         class="absolute inset-0 w-full h-full object-cover z-0" />
 
     <!-- Contact Form Overlay -->
-<<<<<<< HEAD
+
     <div class="relative z-10 w-1/4/60 h-auto lg:min-h-screen flex items-center justify-center px-4 py-12">
         <form
             class="bg-white/10 backdrop-blur-md p-6 my-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
-=======
+
     <div class="relative z-10 w-1/4/60 min-h-screen flex items-center justify-center px-4 py-12">
         <form action="{{ route('contact.save') }}" method="POST"
               class="bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-xl w-full max-w-6xl space-y-6 shadow-xl border border-white/20">
             @csrf
->>>>>>> cf58eee5af7ad868e1b1965ad0f4e942ec9ae57f
+
 
             <!-- Heading -->
             <h2 class="text-2xl md:text-3xl text-white font-bold text-center">Contact Us</h2>

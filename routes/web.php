@@ -27,7 +27,7 @@ Route::get('/category-properties/{propertyType}', [HomeController::class, 'categ
 Route::get('/land', [HomeController::class, 'land'])->name('land');
 Route::get('/commercial', [HomeController::class, 'commercial'])->name('commercial');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/detail/{property}', [HomeController::class, 'detail'])->name('detail');
+Route::get('/detail', [HomeController::class, 'detail'])->name('detail');
 Route::get('/term', [HomeController::class, 'term'])->name('term');
 Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/refund', [HomeController::class, 'refund'])->name('refund');

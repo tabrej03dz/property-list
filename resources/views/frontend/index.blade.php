@@ -45,95 +45,103 @@
             <div class="p-8 bg-blue ">
                 <h3 class="text-2xl font-serif text-white mb-6">Find Your Perfect Property</h3>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Column 1 -->
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-1">I'm Looking To</label>
-                            <div class="flex space-x-2">
-                                <button
-                                    class="flex-1 py-2 px-4 border border-gold-300 bg-gold-300/10 text-white font-medium rounded hover:bg-gold-300 hover:text-white transition-colors">
-                                    Buy
-                                </button>
-                                <button
-                                    class="flex-1 py-2 px-4 border border-gray-300 text-white font-medium rounded hover:border-gold-300 hover:text-gold-700 transition-colors">
-                                    Rent
-                                </button>
+                <form action="{{route('typed-property')}}" method="get">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Column 1 -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-1">I'm Looking To</label>
+                                <div class="flex space-x-2">
+                                    <label class="flex-1 cursor-pointer">
+                                        <input type="radio" name="type" value="buy" class="hidden peer" checked>
+                                        <div class="w-full text-center py-2 px-4 border rounded font-medium transition-colors peer-checked:bg-yellow-400 peer-checked:text-black border-yellow-400 bg-yellow-100 text-black">
+                                            Buy
+                                        </div>
+                                    </label>
+
+                                    <label class="flex-1 cursor-pointer">
+                                        <input type="radio" name="type" value="rent" class="hidden peer">
+                                        <div class="w-full text-center py-2 px-4 border rounded font-medium transition-colors peer-checked:bg-yellow-400 peer-checked:text-black border-yellow-400 bg-yellow-100 text-black">
+                                            Rent
+                                        </div>
+                                    </label>
+                                </div>
+
                             </div>
-                        </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-1">Property Type</label>
-                            <select
-                                class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
-                                <option value="">All Types</option>
-                                <option value="villa">Luxury Villa</option>
-                                <option value="penthouse">Penthouse</option>
-                                <option value="estate">Estate</option>
-                                <option value="apartment">High-End Apartment</option>
-                                <option value="commercial">Commercial</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Column 2 -->
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-1">Location</label>
-                            <input type="text" placeholder="Preferred location..."
-                                class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-white mb-1">Price Range</label>
-                            <div class="flex items-center space-x-2">
-                                <select
-                                    class="flex-1 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
-                                    <option value="">Min</option>
-                                    <option value="1">$1M</option>
-                                    <option value="5">$5M</option>
-                                    <option value="10">$10M</option>
-                                </select>
-                                <span class="text-gray-50">to</span>
-                                <select
-                                    class="flex-1 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
-                                    <option value="">Max</option>
-                                    <option value="5">$5M</option>
-                                    <option value="10">$10M</option>
-                                    <option value="20">$20M+</option>
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-1">Property Type</label>
+                                <select name="property_type_id"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
+                                    <option value="">All Types</option>
+                                    @foreach($propertyTypes as $propertyType)
+                                        <option value="{{$propertyType->id}}">{{$propertyType->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Column 3 -->
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-white text-white mb-1">Bedrooms</label>
-                            <div class="flex flex-wrap gap-2">
-                                <button
-                                    class="px-4 py-2 text-white border border-gray-300 rounded hover:border-gold-300 hover:text-gold-700">1+</button>
-                                <button
-                                    class="px-4 py-2 text-white border border-gray-300 rounded hover:border-gold-300 hover:text-gold-700">2+</button>
-                                <button
-                                    class="px-4 py-2 text-white border border-gray-300 rounded hover:border-gold-300 hover:text-gold-700">3+</button>
-                                <button
-                                    class="px-4 py-2 text-white border border-gray-300 rounded hover:border-gold-300 hover:text-gold-700">4+</button>
-                                <button
-                                    class="px-4 py-2 text-white border border-gray-300 rounded hover:border-gold-300 hover:text-gold-700">5+</button>
+                        <!-- Column 2 -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-1">Location</label>
+                                <input type="text" name="location" placeholder="Preferred location..."
+                                    class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-1">Price Range</label>
+                                <div class="flex items-center space-x-2">
+                                    <select name="min_price"
+                                        class="flex-1 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
+                                        <option value="">Min</option>
+                                        <option value="1000000">₹1M</option>
+                                        <option value="5000000">₹5M</option>
+                                        <option value="10000000">₹10M</option>
+                                    </select>
+                                    <span class="text-gray-50">to</span>
+                                    <select name="max_price"
+                                        class="flex-1 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gold-300 focus:border-gold-300">
+                                        <option value="">Max</option>
+                                        <option value="5000000">₹5M</option>
+                                        <option value="10000000">₹10M</option>
+                                        <option value="20000000">₹20M+</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="pt-2">
-                            <button type="submit"
-                                class="w-full py-3 px-4 hover:bg-white bg-[#D4AF37] text-white active:bg-black  hover:text-black font-semibold text-base rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 shadow-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2">
-                                <span>Search</span>
+                        <!-- Column 3 -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-white mb-1">Bedrooms</label>
+                                <div class="flex flex-wrap gap-2">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <label>
+                                            <input type="radio" name="bedrooms" value="{{ $i }}" class="peer hidden">
+                                            <div
+                                                class="px-4 py-2 text-white border border-gray-300 rounded cursor-pointer
+                           hover:border-gold-300 hover:text-gold-700
+                           peer-checked:border-gold-300 peer-checked:text-yellow-700 peer-checked:bg-white">
+                                                {{ $i }}+
+                                            </div>
+                                        </label>
+                                    @endfor
+                                </div>
+                            </div>
 
-                            </button>
+
+                            <div class="pt-2">
+                                <button type="submit"
+                                    class="w-full py-3 px-4 hover:bg-white bg-[#D4AF37] text-white active:bg-black  hover:text-black font-semibold text-base rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 shadow-md focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2">
+                                    <span>Search</span>
+
+                                </button>
+                            </div>
+
                         </div>
-
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

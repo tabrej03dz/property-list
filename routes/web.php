@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/buy', [HomeController::class, 'buy'])->name('buy');
-Route::get('/typed-property/{type}', [HomeController::class, 'typedProperty'])->name('typed-property');
+Route::get('/typed-property/{type?}', [HomeController::class, 'typedProperty'])->name('typed-property');
 Route::get('/rent', [HomeController::class, 'rent'])->name('rent');
 Route::get('/villa', [HomeController::class, 'villa'])->name('villa');
 Route::get('/category-properties/{propertyType}', [HomeController::class, 'categoryProperties'])->name('category-properties');

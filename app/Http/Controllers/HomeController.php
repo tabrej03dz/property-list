@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Enquiry;
 use App\Models\Property;
 use App\Models\PropertyType;
@@ -11,7 +12,8 @@ class HomeController extends Controller
 {
     public function index(){
         $propertyTypes = PropertyType::all();
-        return view('frontend.index', compact('propertyTypes'));
+        $properties = Property::where('status', 'available')->get();
+        return view('frontend.index', compact('propertyTypes', 'properties'));
     }
 
     public function about(){
@@ -41,6 +43,10 @@ class HomeController extends Controller
 
         }
 
+        if ($request->filled('title')) {
+            $query->where('title', 'like', '%' . $request->title . '%');
+        }
+
         // Property type filter
         if ($request->filled('property_type_id')) {
             $query->where('property_type_id', $request->property_type_id);
@@ -64,9 +70,10 @@ class HomeController extends Controller
         if ($request->filled('bedrooms')) {
             $query->where('bedrooms', '>=', $request->bedrooms);
         }
-        $properties = $query->get();
+        $properties = $query->where('status', 'available')->get();
         $propertyTypes = PropertyType::all();
-        return view('frontend.typed-property', compact('properties', 'recommendations', 'propertyTypes'));
+        $cities = City::all();
+        return view('frontend.typed-property', compact('properties', 'recommendations', 'propertyTypes', 'cities'));
     }
 
 

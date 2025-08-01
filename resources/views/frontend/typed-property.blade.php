@@ -19,7 +19,7 @@
     {{-- SEARCH BAR --}}
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 md:-mt-16 md:-mt-20">
         <div class="bg-white rounded-xl shadow-2xl px-6 py-8 md:py-10 border border-gray-100">
-            <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <form action="{{ route('typed-property') }}" method="get" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <!-- Search Input -->
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -27,19 +27,17 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                    <input type="text" placeholder="Search by property name..."
+                    <input type="text" name="title" placeholder="Search by property name..."
                            class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                 </div>
 
                 <!-- Property Type -->
                 <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <select name="property_type_id" class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option disabled selected>Property Type</option>
-                        <option>Luxury Villa</option>
-                        <option>Penthouse</option>
-                        <option>Waterfront Estate</option>
-                        <option>Golf Resort</option>
-                        <option>Commercial</option>
+                        @foreach($propertyTypes as $propertyType)
+                            <option value="{{$propertyType->id}}">{{$propertyType->title}}</option>
+                        @endforeach
                     </select>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,13 +48,11 @@
 
                 <!-- Location -->
                 <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <select name="location" class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option disabled selected>Preferred Location</option>
-                        <option>South Mumbai</option>
-                        <option>Central Delhi</option>
-                        <option>Bangalore South</option>
-                        <option>Pune Hills</option>
-                        <option>Goa Beachfront</option>
+                        @foreach($cities as $city)
+                            <option value="{{$city->value}}">{{$city->name}}</option>
+                        @endforeach
                     </select>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,22 +61,43 @@
                     </div>
                 </div>
 
-                <!-- Price Range -->
-                <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <option disabled selected>Price Range</option>
-                        <option>Under ₹1 Cr</option>
-                        <option>₹1-5 Cr</option>
-                        <option>₹5-10 Cr</option>
-                        <option>₹10-25 Cr</option>
-                        <option>Above ₹25 Cr</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                <!-- Min and Max Price Range -->
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Min Price -->
+                    <div class="relative">
+                        <select name="min_price" class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option disabled selected>Min Price</option>
+                            <option value="0">₹0</option>
+                            <option value="10000000">₹1 Cr</option>
+                            <option value="50000000">₹5 Cr</option>
+                            <option value="100000000">₹10 Cr</option>
+                            <option value="250000000">₹25 Cr</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Max Price -->
+                    <div class="relative">
+                        <select name="max_price" class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option disabled selected>Max Price</option>
+                            <option value="10000000">₹1 Cr</option>
+                            <option value="50000000">₹5 Cr</option>
+                            <option value="100000000">₹10 Cr</option>
+                            <option value="250000000">₹25 Cr</option>
+                            <option value="1000000000">Above ₹25 Cr</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
+
 
                 <!-- Search Button -->
                 <button type="submit"

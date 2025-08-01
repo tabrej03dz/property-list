@@ -21,10 +21,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="hidden md:flex items-center space-x-4">
-          <a href="{{route('buy')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
+          <a href="{{route('typed-property', 'sale')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-home-4-line mr-2"></i> Buy
           </a>
-          <a href="{{route('rent')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
+          <a href="{{route('typed-property', 'rent')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-community-line mr-2"></i> Rent
           </a>
         </div>
@@ -53,16 +53,16 @@
               <i class="ri-apps-2-line mr-2"></i> Categories
               <i class="ri-arrow-down-s-line ml-1 transition-transform group-hover:rotate-180"></i>
             </button>
+              @php
+                  $propertyTypes = \App\Models\PropertyType::all();
+              @endphp
             <div class="absolute left-0 mt-1 w-56 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100 z-50">
-              <a href="{{route('villa')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
-                <i class="ri-home-3-line mr-3 text-red-500"></i> Villas
-              </a>
-              <a href="{{route('land')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
-                <i class="ri-map-pin-line mr-3 text-emerald-500"></i> Land
-              </a>
-              <a href="{{route('commercial')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
-                <i class="ri-building-2-line mr-3 text-purple-500"></i> Commercial
-              </a>
+                @foreach($propertyTypes as $propertyType)
+                    <a href="{{route('category-properties', $propertyType->id)}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center">
+                        <i class="ri-home-3-line mr-3 text-red-500"></i> {{ucfirst($propertyType->title)}}
+                    </a>
+                @endforeach
+
             </div>
           </div>
           <a href="{{route('about')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
@@ -89,15 +89,12 @@
             <i id="mobile-category-arrow" class="ri-arrow-down-s-line transition-transform"></i>
           </button>
           <div id="mobile-category-menu" class="pl-12 mt-1 space-y-1 hidden">
-            <a href="{{route('villa')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
-              <i class="ri-home-3-line mr-3 text-red-500"></i> Villas
-            </a>
-            <a href="{{route('land')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
-              <i class="ri-map-pin-line mr-3 text-emerald-500"></i> Land
-            </a>
-            <a href="{{route('commercial')}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
-              <i class="ri-building-2-line mr-3 text-purple-500"></i> Commercial
-            </a>
+              @foreach($propertyTypes as $propertyType)
+                  <a href="{{route('category-properties', $propertyType->id)}}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg flex items-center">
+                      <i class="ri-home-3-line mr-3 text-red-500"></i> {{ucfirst($propertyType->title)}}
+                  </a>
+              @endforeach
+
           </div>
         </div>
         <a href="{{route('about')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">

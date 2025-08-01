@@ -323,26 +323,397 @@
         </p>
     </div>
 
+{{--    <div class="relative max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-8 group">--}}
+{{--        <!-- Carousel container -->--}}
+{{--        <div class="relative overflow-hidden">--}}
+{{--            <!-- Track -->--}}
+{{--            <div id="carouselTrack" class=" flex transition-transform duration-500 ease-in-out will-change-transform">--}}
+{{--                <!-- Slides will be inserted here by JavaScript -->--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <!-- Navigation buttons -->--}}
+{{--        <button id="prevButton" aria-label="Previous slide"--}}
+{{--            class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100">--}}
+{{--            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                <path fill-rule="evenodd"--}}
+{{--                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"--}}
+{{--                    clip-rule="evenodd" />--}}
+{{--            </svg>--}}
+{{--        </button>--}}
+{{--        <button id="nextButton" aria-label="Next slide"--}}
+{{--            class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100">--}}
+{{--            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                <path fill-rule="evenodd"--}}
+{{--                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"--}}
+{{--                    clip-rule="evenodd" />--}}
+{{--            </svg>--}}
+{{--        </button>--}}
+{{--    </div>--}}
+
+{{--    <script>--}}
+{{--        document.addEventListener('DOMContentLoaded', () => {--}}
+{{--            // Sample data - replace with your actual data--}}
+{{--            const properties = [{--}}
+{{--                    title: "Luxury Villa",--}}
+{{--                    price: "฿12,000,000",--}}
+{{--                    location: "Maret, Ko Samui",--}}
+{{--                    date: "3 days ago",--}}
+{{--                    beds: 4,--}}
+{{--                    baths: 3,--}}
+{{--                    area: "350 Sqm",--}}
+{{--                    images: [--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}",--}}
+{{--                        "{{ asset('asset/img/residential.png') }}",--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}"--}}
+{{--                    ]--}}
+{{--                },--}}
+{{--                {--}}
+{{--                    title: "Beachfront House",--}}
+{{--                    price: "฿8,500,000",--}}
+{{--                    location: "Chaweng, Ko Samui",--}}
+{{--                    date: "1 week ago",--}}
+{{--                    beds: 3,--}}
+{{--                    baths: 2,--}}
+{{--                    area: "280 Sqm",--}}
+{{--                    images: [--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}",--}}
+{{--                        "{{ asset('asset/img/residential.png') }}",--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}"--}}
+{{--                    ]--}}
+{{--                },--}}
+{{--                {--}}
+{{--                    title: "Modern Apartment",--}}
+{{--                    price: "฿5,200,000",--}}
+{{--                    location: "Lamai, Ko Samui",--}}
+{{--                    date: "2 days ago",--}}
+{{--                    beds: 2,--}}
+{{--                    baths: 1,--}}
+{{--                    area: "120 Sqm",--}}
+{{--                    images: [--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}",--}}
+{{--                        "{{ asset('asset/img/residential.png') }}",--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}"--}}
+{{--                    ]--}}
+{{--                },--}}
+{{--                {--}}
+{{--                    title: "Hillside Villa",--}}
+{{--                    price: "฿15,000,000",--}}
+{{--                    location: "Bophut, Ko Samui",--}}
+{{--                    date: "5 days ago",--}}
+{{--                    beds: 5,--}}
+{{--                    baths: 4,--}}
+{{--                    area: "420 Sqm",--}}
+{{--                    images: [--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}",--}}
+{{--                        "{{ asset('asset/img/residential.png') }}",--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}"--}}
+{{--                    ]--}}
+{{--                },--}}
+{{--                {--}}
+{{--                    title: "Garden House",--}}
+{{--                    price: "฿6,750,000",--}}
+{{--                    location: "Maenam, Ko Samui",--}}
+{{--                    date: "1 day ago",--}}
+{{--                    beds: 3,--}}
+{{--                    baths: 2,--}}
+{{--                    area: "320 Sqm",--}}
+{{--                    images: [--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}",--}}
+{{--                        "{{ asset('asset/img/residential.png') }}",--}}
+{{--                        "{{ asset('asset/img/image1.jpg') }}"--}}
+{{--                    ]--}}
+{{--                }--}}
+{{--            ];--}}
+
+{{--            const carouselTrack = document.getElementById('carouselTrack');--}}
+{{--            const prevButton = document.getElementById('prevButton');--}}
+{{--            const nextButton = document.getElementById('nextButton');--}}
+
+{{--            let currentIndex = 0;--}}
+{{--            let slideWidth = 0;--}}
+{{--            let visibleSlides = 1;--}}
+{{--            let autoSlideInterval;--}}
+{{--            let isDragging = false;--}}
+{{--            let startPos = 0;--}}
+{{--            let currentTranslate = 0;--}}
+{{--            let prevTranslate = 0;--}}
+{{--            let animationID;--}}
+
+{{--            // Initialize carousel--}}
+{{--            function initCarousel() {--}}
+{{--                // Clear existing slides--}}
+{{--                carouselTrack.innerHTML = '';--}}
+
+{{--                // Determine number of visible slides based on screen width--}}
+{{--                visibleSlides = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;--}}
+
+{{--                // Create slides--}}
+{{--                properties.forEach((property, index) => {--}}
+{{--                    const slide = document.createElement('div');--}}
+{{--                    slide.className =--}}
+{{--                        `flex-shrink-0 px-2 transition-all duration-300 ${visibleSlides === 1 ? 'w-full' : visibleSlides === 2 ? 'w-1/2' : 'w-1/3'}`;--}}
+{{--                    slide.innerHTML = `--}}
+{{--                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">--}}
+{{--                            <div class="relative aspect-[4/3] overflow-hidden">--}}
+{{--                                ${property.images.map((img, imgIndex) => `--}}
+{{--                                                                                    <img src="${img}" alt="${property.title}"--}}
+{{--                                                                                        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}"--}}
+{{--                                                                                        data-slide-img="${index}-${imgIndex}">--}}
+{{--                                                                                `).join('')}--}}
+
+{{--                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-b from-transparent via-black/80 to-black/90 text-white p-4 space-y-1">--}}
+{{--                                    <h3 class="text-lg font-semibold leading-tight">${property.title}</h3>--}}
+{{--                                    <p class="text-md">${property.price}</p>--}}
+{{--                                    <div class="flex justify-between text-sm">--}}
+{{--                                        <p>📍 ${property.location}</p>--}}
+{{--                                        <p>${property.date}</p>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="flex justify-center text-sm text-white gap-4 mt-2">--}}
+{{--                                        <span>🛏 ${property.beds}</span>--}}
+{{--                                        <span>🛁 ${property.baths}</span>--}}
+{{--                                        <span>📐 ${property.area}</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                                <div class="absolute top-1/2 w-full flex justify-between px-2">--}}
+{{--                                    <button onclick="changeImage(${index}, -1)" aria-label="Previous image"--}}
+{{--                                        class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">--}}
+{{--                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />--}}
+{{--                                        </svg>--}}
+{{--                                    </button>--}}
+{{--                                    <button onclick="changeImage(${index}, 1)" aria-label="Next image"--}}
+{{--                                        class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">--}}
+{{--                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />--}}
+{{--                                        </svg>--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    `;--}}
+{{--                    carouselTrack.appendChild(slide);--}}
+{{--                });--}}
+
+{{--                // Clone slides for infinite loop--}}
+{{--                for (let i = 0; i < visibleSlides; i++) {--}}
+{{--                    const clone = carouselTrack.children[i].cloneNode(true);--}}
+{{--                    carouselTrack.appendChild(clone);--}}
+{{--                }--}}
+
+{{--                updateCarousel();--}}
+{{--                startAutoSlide();--}}
+
+{{--                // Add touch event listeners for mobile swipe--}}
+{{--                carouselTrack.addEventListener('touchstart', touchStart);--}}
+{{--                carouselTrack.addEventListener('touchmove', touchMove);--}}
+{{--                carouselTrack.addEventListener('touchend', touchEnd);--}}
+
+{{--                // Add mouse event listeners for desktop drag--}}
+{{--                carouselTrack.addEventListener('mousedown', dragStart);--}}
+{{--                carouselTrack.addEventListener('mousemove', dragMove);--}}
+{{--                carouselTrack.addEventListener('mouseup', dragEnd);--}}
+{{--                carouselTrack.addEventListener('mouseleave', dragEnd);--}}
+{{--            }--}}
+
+{{--            // Update carousel position--}}
+{{--            function updateCarousel() {--}}
+{{--                slideWidth = carouselTrack.children[0].offsetWidth;--}}
+{{--                carouselTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;--}}
+{{--            }--}}
+
+{{--            // Move to specific slide--}}
+{{--            function moveToSlide(index) {--}}
+{{--                stopAutoSlide();--}}
+{{--                currentIndex = index;--}}
+
+{{--                // Handle loop when reaching end--}}
+{{--                if (currentIndex >= properties.length) {--}}
+{{--                    setTimeout(() => {--}}
+{{--                        carouselTrack.style.transition = 'none';--}}
+{{--                        currentIndex = 0;--}}
+{{--                        updateCarousel();--}}
+{{--                    }, 500);--}}
+{{--                }--}}
+
+{{--                carouselTrack.style.transition = 'transform 0.5s ease-in-out';--}}
+{{--                updateCarousel();--}}
+{{--                startAutoSlide();--}}
+{{--            }--}}
+
+{{--            // Next slide--}}
+{{--            function nextSlide() {--}}
+{{--                moveToSlide(currentIndex + 1);--}}
+{{--            }--}}
+
+{{--            // Previous slide--}}
+{{--            function prevSlide() {--}}
+{{--                if (currentIndex <= 0) {--}}
+{{--                    // Jump to clone at end for smooth loop--}}
+{{--                    carouselTrack.style.transition = 'none';--}}
+{{--                    currentIndex = properties.length;--}}
+{{--                    updateCarousel();--}}
+
+{{--                    setTimeout(() => {--}}
+{{--                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';--}}
+{{--                        prevSlide();--}}
+{{--                    }, 50);--}}
+{{--                } else {--}}
+{{--                    moveToSlide(currentIndex - 1);--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            // Auto slide--}}
+{{--            function startAutoSlide() {--}}
+{{--                autoSlideInterval = setInterval(nextSlide, 5000);--}}
+{{--            }--}}
+
+{{--            function stopAutoSlide() {--}}
+{{--                clearInterval(autoSlideInterval);--}}
+{{--            }--}}
+
+{{--            // Change image within a slide--}}
+{{--            window.changeImage = function(slideIndex, direction) {--}}
+{{--                const slide = carouselTrack.children[slideIndex];--}}
+{{--                const images = slide.querySelectorAll('[data-slide-img^="' + slideIndex + '-"]');--}}
+{{--                let currentImgIndex = 0;--}}
+
+{{--                // Find current visible image--}}
+{{--                images.forEach((img, index) => {--}}
+{{--                    if (img.style.opacity === '1') {--}}
+{{--                        currentImgIndex = index;--}}
+{{--                    }--}}
+{{--                });--}}
+
+{{--                let newIndex = currentImgIndex + direction;--}}
+
+{{--                // Handle loop--}}
+{{--                if (newIndex < 0) newIndex = images.length - 1;--}}
+{{--                if (newIndex >= images.length) newIndex = 0;--}}
+
+{{--                // Update opacity--}}
+{{--                images.forEach(img => img.style.opacity = '0');--}}
+{{--                images[newIndex].style.opacity = '1';--}}
+{{--            };--}}
+
+{{--            // Touch events for mobile swipe--}}
+{{--            function touchStart(e) {--}}
+{{--                stopAutoSlide();--}}
+{{--                startPos = e.touches[0].clientX;--}}
+{{--                isDragging = true;--}}
+{{--                carouselTrack.style.transition = 'none';--}}
+{{--                animationID = requestAnimationFrame(animation);--}}
+{{--            }--}}
+
+{{--            function touchMove(e) {--}}
+{{--                if (isDragging) {--}}
+{{--                    const currentPosition = e.touches[0].clientX;--}}
+{{--                    currentTranslate = prevTranslate + currentPosition - startPos;--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            function touchEnd() {--}}
+{{--                if (isDragging) {--}}
+{{--                    cancelAnimationFrame(animationID);--}}
+{{--                    isDragging = false;--}}
+
+{{--                    const movedBy = currentTranslate - prevTranslate;--}}
+
+{{--                    if (movedBy < -50) {--}}
+{{--                        nextSlide();--}}
+{{--                    } else if (movedBy > 50) {--}}
+{{--                        prevSlide();--}}
+{{--                    } else {--}}
+{{--                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';--}}
+{{--                        updateCarousel();--}}
+{{--                    }--}}
+
+{{--                    startAutoSlide();--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            // Mouse events for desktop drag--}}
+{{--            function dragStart(e) {--}}
+{{--                stopAutoSlide();--}}
+{{--                startPos = e.clientX;--}}
+{{--                isDragging = true;--}}
+{{--                carouselTrack.style.transition = 'none';--}}
+{{--                animationID = requestAnimationFrame(animation);--}}
+{{--            }--}}
+
+{{--            function dragMove(e) {--}}
+{{--                if (isDragging) {--}}
+{{--                    const currentPosition = e.clientX;--}}
+{{--                    currentTranslate = prevTranslate + currentPosition - startPos;--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            function dragEnd() {--}}
+{{--                if (isDragging) {--}}
+{{--                    cancelAnimationFrame(animationID);--}}
+{{--                    isDragging = false;--}}
+
+{{--                    const movedBy = currentTranslate - prevTranslate;--}}
+
+{{--                    if (movedBy < -50) {--}}
+{{--                        nextSlide();--}}
+{{--                    } else if (movedBy > 50) {--}}
+{{--                        prevSlide();--}}
+{{--                    } else {--}}
+{{--                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';--}}
+{{--                        updateCarousel();--}}
+{{--                    }--}}
+
+{{--                    startAutoSlide();--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            // Smooth animation for dragging--}}
+{{--            function animation() {--}}
+{{--                carouselTrack.style.transform =--}}
+{{--                    `translateX(calc(-${slideWidth * currentIndex}px + ${currentTranslate - prevTranslate}px))`;--}}
+{{--                animationID = requestAnimationFrame(animation);--}}
+{{--            }--}}
+
+{{--            // Event listeners for navigation buttons--}}
+{{--            prevButton.addEventListener('click', () => {--}}
+{{--                prevSlide();--}}
+{{--            });--}}
+
+{{--            nextButton.addEventListener('click', () => {--}}
+{{--                nextSlide();--}}
+{{--            });--}}
+
+{{--            // Initialize on load--}}
+{{--            initCarousel();--}}
+
+{{--            // Handle resize--}}
+{{--            window.addEventListener('resize', () => {--}}
+{{--                stopAutoSlide();--}}
+{{--                initCarousel();--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+
+
     <div class="relative max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-8 group">
-        <!-- Carousel container -->
         <div class="relative overflow-hidden">
-            <!-- Track -->
-            <div id="carouselTrack" class=" flex transition-transform duration-500 ease-in-out will-change-transform">
-                <!-- Slides will be inserted here by JavaScript -->
+            <div id="carouselTrack" class="flex transition-transform duration-500 ease-in-out will-change-transform">
+                <!-- Slides will be inserted here by JS -->
             </div>
         </div>
 
-        <!-- Navigation buttons -->
-        <button id="prevButton" aria-label="Previous slide"
-            class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-            </svg>
+        <button id="prevButton"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                        clip-rule="evenodd" />
+                </svg>
         </button>
-        <button id="nextButton" aria-label="Next slide"
-            class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100">
+        <button id="nextButton"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-red-600 text-white rounded-full p-2 shadow-lg z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
                     d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -353,78 +724,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Sample data - replace with your actual data
-            const properties = [{
-                    title: "Luxury Villa",
-                    price: "฿12,000,000",
-                    location: "Maret, Ko Samui",
-                    date: "3 days ago",
-                    beds: 4,
-                    baths: 3,
-                    area: "350 Sqm",
-                    images: [
-                        "{{ asset('asset/img/image1.jpg') }}",
-                        "{{ asset('asset/img/residential.png') }}",
-                        "{{ asset('asset/img/image1.jpg') }}"
-                    ]
-                },
-                {
-                    title: "Beachfront House",
-                    price: "฿8,500,000",
-                    location: "Chaweng, Ko Samui",
-                    date: "1 week ago",
-                    beds: 3,
-                    baths: 2,
-                    area: "280 Sqm",
-                    images: [
-                        "{{ asset('asset/img/image1.jpg') }}",
-                        "{{ asset('asset/img/residential.png') }}",
-                        "{{ asset('asset/img/image1.jpg') }}"
-                    ]
-                },
-                {
-                    title: "Modern Apartment",
-                    price: "฿5,200,000",
-                    location: "Lamai, Ko Samui",
-                    date: "2 days ago",
-                    beds: 2,
-                    baths: 1,
-                    area: "120 Sqm",
-                    images: [
-                        "{{ asset('asset/img/image1.jpg') }}",
-                        "{{ asset('asset/img/residential.png') }}",
-                        "{{ asset('asset/img/image1.jpg') }}"
-                    ]
-                },
-                {
-                    title: "Hillside Villa",
-                    price: "฿15,000,000",
-                    location: "Bophut, Ko Samui",
-                    date: "5 days ago",
-                    beds: 5,
-                    baths: 4,
-                    area: "420 Sqm",
-                    images: [
-                        "{{ asset('asset/img/image1.jpg') }}",
-                        "{{ asset('asset/img/residential.png') }}",
-                        "{{ asset('asset/img/image1.jpg') }}"
-                    ]
-                },
-                {
-                    title: "Garden House",
-                    price: "฿6,750,000",
-                    location: "Maenam, Ko Samui",
-                    date: "1 day ago",
-                    beds: 3,
-                    baths: 2,
-                    area: "320 Sqm",
-                    images: [
-                        "{{ asset('asset/img/image1.jpg') }}",
-                        "{{ asset('asset/img/residential.png') }}",
-                        "{{ asset('asset/img/image1.jpg') }}"
-                    ]
-                }
-            ];
+            const properties = @json($properties);
 
             const carouselTrack = document.getElementById('carouselTrack');
             const prevButton = document.getElementById('prevButton');
@@ -434,137 +734,82 @@
             let slideWidth = 0;
             let visibleSlides = 1;
             let autoSlideInterval;
-            let isDragging = false;
-            let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            let animationID;
 
-            // Initialize carousel
             function initCarousel() {
-                // Clear existing slides
                 carouselTrack.innerHTML = '';
-
-                // Determine number of visible slides based on screen width
                 visibleSlides = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
 
-                // Create slides
                 properties.forEach((property, index) => {
                     const slide = document.createElement('div');
-                    slide.className =
-                        `flex-shrink-0 px-2 transition-all duration-300 ${visibleSlides === 1 ? 'w-full' : visibleSlides === 2 ? 'w-1/2' : 'w-1/3'}`;
+                    slide.className = `flex-shrink-0 px-2 transition-all duration-300 ${visibleSlides === 1 ? 'w-full' : visibleSlides === 2 ? 'w-1/2' : 'w-1/3'}`;
                     slide.innerHTML = `
-                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">
-                            <div class="relative aspect-[4/3] overflow-hidden">
-                                ${property.images.map((img, imgIndex) => `
-                                                                                    <img src="${img}" alt="${property.title}"
-                                                                                        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}"
-                                                                                        data-slide-img="${index}-${imgIndex}">
-                                                                                `).join('')}
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            ${property.images.map((img, imgIndex) => `
+                                <img src="${img}" alt="${property.title}"
+                                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}"
+                                    data-slide-img="${index}-${imgIndex}">
+                            `).join('')}
 
-                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-b from-transparent via-black/80 to-black/90 text-white p-4 space-y-1">
-                                    <h3 class="text-lg font-semibold leading-tight">${property.title}</h3>
-                                    <p class="text-md">${property.price}</p>
-                                    <div class="flex justify-between text-sm">
-                                        <p>📍 ${property.location}</p>
-                                        <p>${property.date}</p>
-                                    </div>
-                                    <div class="flex justify-center text-sm text-white gap-4 mt-2">
-                                        <span>🛏 ${property.beds}</span>
-                                        <span>🛁 ${property.baths}</span>
-                                        <span>📐 ${property.area}</span>
-                                    </div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-b from-transparent via-black/80 to-black/90 text-white p-4 space-y-1">
+                                <h3 class="text-lg font-semibold leading-tight">${property.title}</h3>
+                                <p class="text-md">${property.price}</p>
+                                <div class="flex justify-between text-sm">
+                                    <p>📍 ${property.location}</p>
+                                    <p>${property.date}</p>
                                 </div>
-
-                                <div class="absolute top-1/2 w-full flex justify-between px-2">
-                                    <button onclick="changeImage(${index}, -1)" aria-label="Previous image"
-                                        class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <button onclick="changeImage(${index}, 1)" aria-label="Next image"
-                                        class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
+                                <div class="flex justify-center text-sm text-white gap-4 mt-2">
+                                    <span>🛏 ${property.beds}</span>
+                                    <span>🛁 ${property.baths}</span>
+                                    <span>📐 ${property.area}</span>
                                 </div>
                             </div>
+
+                            <div class="absolute top-1/2 w-full flex justify-between px-2">
+                                <button onclick="changeImage(${index}, -1)" class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                           <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                       </svg>
+                                </button>
+                                <button onclick="changeImage(${index}, 1)" class="bg-white/70 hover:bg-white text-black rounded-full p-1 transition-all duration-300 shadow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                    `;
+                    </div>
+                `;
                     carouselTrack.appendChild(slide);
                 });
 
-                // Clone slides for infinite loop
-                for (let i = 0; i < visibleSlides; i++) {
-                    const clone = carouselTrack.children[i].cloneNode(true);
-                    carouselTrack.appendChild(clone);
-                }
-
                 updateCarousel();
                 startAutoSlide();
-
-                // Add touch event listeners for mobile swipe
-                carouselTrack.addEventListener('touchstart', touchStart);
-                carouselTrack.addEventListener('touchmove', touchMove);
-                carouselTrack.addEventListener('touchend', touchEnd);
-
-                // Add mouse event listeners for desktop drag
-                carouselTrack.addEventListener('mousedown', dragStart);
-                carouselTrack.addEventListener('mousemove', dragMove);
-                carouselTrack.addEventListener('mouseup', dragEnd);
-                carouselTrack.addEventListener('mouseleave', dragEnd);
             }
 
-            // Update carousel position
             function updateCarousel() {
-                slideWidth = carouselTrack.children[0].offsetWidth;
+                slideWidth = carouselTrack.children[0]?.offsetWidth || 0;
                 carouselTrack.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             }
 
-            // Move to specific slide
             function moveToSlide(index) {
                 stopAutoSlide();
                 currentIndex = index;
-
-                // Handle loop when reaching end
-                if (currentIndex >= properties.length) {
-                    setTimeout(() => {
-                        carouselTrack.style.transition = 'none';
-                        currentIndex = 0;
-                        updateCarousel();
-                    }, 500);
-                }
-
+                if (currentIndex >= properties.length) currentIndex = 0;
+                if (currentIndex < 0) currentIndex = properties.length - 1;
                 carouselTrack.style.transition = 'transform 0.5s ease-in-out';
                 updateCarousel();
                 startAutoSlide();
             }
 
-            // Next slide
             function nextSlide() {
                 moveToSlide(currentIndex + 1);
             }
 
-            // Previous slide
             function prevSlide() {
-                if (currentIndex <= 0) {
-                    // Jump to clone at end for smooth loop
-                    carouselTrack.style.transition = 'none';
-                    currentIndex = properties.length;
-                    updateCarousel();
-
-                    setTimeout(() => {
-                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-                        prevSlide();
-                    }, 50);
-                } else {
-                    moveToSlide(currentIndex - 1);
-                }
+                moveToSlide(currentIndex - 1);
             }
 
-            // Auto slide
             function startAutoSlide() {
                 autoSlideInterval = setInterval(nextSlide, 5000);
             }
@@ -573,126 +818,29 @@
                 clearInterval(autoSlideInterval);
             }
 
-            // Change image within a slide
-            window.changeImage = function(slideIndex, direction) {
+            window.changeImage = function (slideIndex, direction) {
                 const slide = carouselTrack.children[slideIndex];
                 const images = slide.querySelectorAll('[data-slide-img^="' + slideIndex + '-"]');
                 let currentImgIndex = 0;
 
-                // Find current visible image
-                images.forEach((img, index) => {
-                    if (img.style.opacity === '1') {
-                        currentImgIndex = index;
-                    }
+                images.forEach((img, i) => {
+                    if (img.style.opacity === '1') currentImgIndex = i;
                 });
 
-                let newIndex = currentImgIndex + direction;
-
-                // Handle loop
-                if (newIndex < 0) newIndex = images.length - 1;
-                if (newIndex >= images.length) newIndex = 0;
-
-                // Update opacity
+                let newIndex = (currentImgIndex + direction + images.length) % images.length;
                 images.forEach(img => img.style.opacity = '0');
                 images[newIndex].style.opacity = '1';
-            };
-
-            // Touch events for mobile swipe
-            function touchStart(e) {
-                stopAutoSlide();
-                startPos = e.touches[0].clientX;
-                isDragging = true;
-                carouselTrack.style.transition = 'none';
-                animationID = requestAnimationFrame(animation);
             }
 
-            function touchMove(e) {
-                if (isDragging) {
-                    const currentPosition = e.touches[0].clientX;
-                    currentTranslate = prevTranslate + currentPosition - startPos;
-                }
-            }
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
 
-            function touchEnd() {
-                if (isDragging) {
-                    cancelAnimationFrame(animationID);
-                    isDragging = false;
-
-                    const movedBy = currentTranslate - prevTranslate;
-
-                    if (movedBy < -50) {
-                        nextSlide();
-                    } else if (movedBy > 50) {
-                        prevSlide();
-                    } else {
-                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-                        updateCarousel();
-                    }
-
-                    startAutoSlide();
-                }
-            }
-
-            // Mouse events for desktop drag
-            function dragStart(e) {
-                stopAutoSlide();
-                startPos = e.clientX;
-                isDragging = true;
-                carouselTrack.style.transition = 'none';
-                animationID = requestAnimationFrame(animation);
-            }
-
-            function dragMove(e) {
-                if (isDragging) {
-                    const currentPosition = e.clientX;
-                    currentTranslate = prevTranslate + currentPosition - startPos;
-                }
-            }
-
-            function dragEnd() {
-                if (isDragging) {
-                    cancelAnimationFrame(animationID);
-                    isDragging = false;
-
-                    const movedBy = currentTranslate - prevTranslate;
-
-                    if (movedBy < -50) {
-                        nextSlide();
-                    } else if (movedBy > 50) {
-                        prevSlide();
-                    } else {
-                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-                        updateCarousel();
-                    }
-
-                    startAutoSlide();
-                }
-            }
-
-            // Smooth animation for dragging
-            function animation() {
-                carouselTrack.style.transform =
-                    `translateX(calc(-${slideWidth * currentIndex}px + ${currentTranslate - prevTranslate}px))`;
-                animationID = requestAnimationFrame(animation);
-            }
-
-            // Event listeners for navigation buttons
-            prevButton.addEventListener('click', () => {
-                prevSlide();
-            });
-
-            nextButton.addEventListener('click', () => {
-                nextSlide();
-            });
-
-            // Initialize on load
-            initCarousel();
-
-            // Handle resize
             window.addEventListener('resize', () => {
                 stopAutoSlide();
                 initCarousel();
             });
+
+            initCarousel();
         });
     </script>
 
@@ -735,42 +883,42 @@
 
                 <!-- Clone and change the data-category accordingly: "sell", "rent", "featured" -->
                 <!-- Example Sell Property -->
-                @foreach($properties as $property)
-                    <div class="property-card" data-category="{{$property->type}}">
-                        <!-- Use same card structure -->
-                        <!-- Only category, title, and price needs change -->
-                        <!-- ... -->
-                        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-                            <div class="relative">
-                                <img src="{{asset('storage/'. $property->image?->url)}}"
-                                     alt="Golden Urban House" class="w-full h-60 object-cover" />
-                                <span
-                                    class="absolute top-3 left-3 bg-[#459FC2] text-white text-xs font-semibold p-3 rounded shadow">For
-                                {{ucfirst($property->type)}}</span>
-                                <span
-                                    class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
-                            </div>
-                            <div class="p-5">
-                                <h2 class="text-xl font-semibold text-green-600 mb-1">Price: ₹{{number_format($property->price)}}</h2>
-                                <a href="{{ route('detail', $property->id) }}"
-                                   class="text-gray-800 font-medium mb-1 hover:text-blue-600 transition-colors">{{$property->title}}</a>
-                                <p class="text-gray-600 text-sm mb-3">{{ strlen($property->description) > 30 ? substr($property->description, 0, 30) . '...' : $property->description }}
-                                </p>
-                                <p class="flex items-center text-sm text-gray-500 mb-4">
-                                    <span class="material-symbols-outlined text-[#459FC2] mr-1">location_on</span>{{$property->address}}
-                                </p>
-                                <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
-                                <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-[#459FC2]">crop_square</span>{{$property->area}} Sqft</span>
-                                    <span class="flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[#459FC2]">bed</span>{{$property->bedrooms}} Bed</span>
-                                    <span class="flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[#459FC2]">bathtub</span>{{$property->bathrooms}} Bath</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+{{--                @foreach($properties as $property)--}}
+{{--                    <div class="property-card" data-category="{{$property->type}}">--}}
+{{--                        <!-- Use same card structure -->--}}
+{{--                        <!-- Only category, title, and price needs change -->--}}
+{{--                        <!-- ... -->--}}
+{{--                        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">--}}
+{{--                            <div class="relative">--}}
+{{--                                <img src="{{asset('storage/'. $property->image?->url)}}"--}}
+{{--                                     alt="Golden Urban House" class="w-full h-60 object-cover" />--}}
+{{--                                <span--}}
+{{--                                    class="absolute top-3 left-3 bg-[#459FC2] text-white text-xs font-semibold p-3 rounded shadow">For--}}
+{{--                                {{ucfirst($property->type)}}</span>--}}
+{{--                                <span--}}
+{{--                                    class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="p-5">--}}
+{{--                                <h2 class="text-xl font-semibold text-green-600 mb-1">Price: ₹{{number_format($property->price)}}</h2>--}}
+{{--                                <a href="{{ route('detail', $property->id) }}"--}}
+{{--                                   class="text-gray-800 font-medium mb-1 hover:text-blue-600 transition-colors">{{$property->title}}</a>--}}
+{{--                                <p class="text-gray-600 text-sm mb-3">{{ strlen($property->description) > 30 ? substr($property->description, 0, 30) . '...' : $property->description }}--}}
+{{--                                </p>--}}
+{{--                                <p class="flex items-center text-sm text-gray-500 mb-4">--}}
+{{--                                    <span class="material-symbols-outlined text-[#459FC2] mr-1">location_on</span>{{$property->address}}--}}
+{{--                                </p>--}}
+{{--                                <div class="flex justify-between text-sm text-gray-700 border-t pt-3">--}}
+{{--                                <span class="flex items-center gap-1"><span--}}
+{{--                                        class="material-symbols-outlined text-[#459FC2]">crop_square</span>{{$property->area}} Sqft</span>--}}
+{{--                                    <span class="flex items-center gap-1"><span--}}
+{{--                                            class="material-symbols-outlined text-[#459FC2]">bed</span>{{$property->bedrooms}} Bed</span>--}}
+{{--                                    <span class="flex items-center gap-1"><span--}}
+{{--                                            class="material-symbols-outlined text-[#459FC2]">bathtub</span>{{$property->bathrooms}} Bath</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
 
 
 

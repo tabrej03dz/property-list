@@ -12,7 +12,20 @@ class HomeController extends Controller
 {
     public function index(){
         $propertyTypes = PropertyType::all();
-        $properties = Property::where('status', 'available')->get();
+        $properties = Property::where('status', 'available')->with('images')->get()->map(function ($property) {
+            return [
+                'title' => $property->title,
+                'price' => '₹' . number_format($property->price),
+                'location' => $property->location,
+                'date' => $property->created_at->diffForHumans(),
+                'beds' => $property->bedrooms,
+                'baths' => $property->bathrooms,
+                'area' => $property->area . ' Sqft',
+                'images' => $property->images->map(function ($img) {
+                    return asset('storage/' . $img->filename);
+                })->toArray(),
+            ];
+        });
         return view('frontend.index', compact('propertyTypes', 'properties'));
     }
 
@@ -73,7 +86,7 @@ class HomeController extends Controller
         $properties = $query->where('status', 'available')->get();
         $propertyTypes = PropertyType::all();
         $cities = City::all();
-        return view('frontend.typed-property', compact('properties', 'recommendations', 'propertyTypes', 'cities'));
+        return view('frontend.typed-property', compact('properties', 'recommendations', 'propertyTypes', 'cities', 'finalType'));
     }
 
 

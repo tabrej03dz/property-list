@@ -10,7 +10,7 @@
             <div class="flex justify-center space-x-2 py-2">
                 <p class="text-white hover:underline"> <a href="/">Home</p></a>
                 <p class="text-white">/</p>
-                <p class="text-white hover:underline"><a href="{{route('villa')}}">Villa</p></a>
+                <p class="text-white hover:underline"><a href="">{{$propertyType->title}}</p></a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
         <div class="mb-12 text-center">
             <h1
                 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-yellow-500 to-yellow-700 text-transparent bg-clip-text">
-                Property Exploration - Villa
+                Property Exploration - {{ucfirst($propertyType->title)}}
             </h1>
         </div>
 

@@ -8,9 +8,9 @@
                 Find Your Dream Property
             </h1>
             <div class="flex justify-center space-x-2 py-2">
-                <p class="text-white hover:underline"> <a href="/">Home</p></a>
+                <a href="/"><p class="text-white hover:underline"> Home</p></a>
                 <p class="text-white">/</p>
-                <p class="text-white hover:underline"><a href="{{route('buy')}}">Buy</p></a>
+                <p class="text-white hover:underline"><a href="">{{ucfirst($finalType)}}</p></a>
             </div>
         </div>
     </div>

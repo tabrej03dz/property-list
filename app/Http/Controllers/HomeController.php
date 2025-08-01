@@ -65,7 +65,8 @@ class HomeController extends Controller
             $query->where('bedrooms', '>=', $request->bedrooms);
         }
         $properties = $query->get();
-        return view('frontend.typed-property', compact('properties', 'recommendations'));
+        $propertyTypes = PropertyType::all();
+        return view('frontend.typed-property', compact('properties', 'recommendations', 'propertyTypes'));
     }
 
 

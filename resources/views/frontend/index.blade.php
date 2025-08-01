@@ -203,308 +203,45 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <!-- Card Start -->
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
+            @foreach($propertyTypes as $propertyType)
                 <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
+                    class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
+                    <!-- Animated Glow Overlay -->
                     <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
+                        class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
                     </div>
 
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
+                    <!-- Decorative Top Border -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
 
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
+                    <div class="relative z-10 flex flex-col items-center p-8">
+                        <!-- Icon Container -->
+                        <div
+                            class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
+                            <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
+                                 class="w-12 h-12 object-contain" />
+                        </div>
 
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
+                        <!-- Title -->
+                        <h2
+                            class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
+                            {{$propertyType->title}}
+                        </h2>
 
+                        <!-- Subtitle -->
+                        <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
+                            {{$propertyType->properties()->where('status', 'available')->count()}}+ Available
+                        </p>
 
-            <!-- Card End -->
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
+                        <!-- Action Button (Optional) -->
+                        <a href="{{route('category-properties', $propertyType->id)}}"
+                            class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
+                            Explore
+                        </a>
                     </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
                 </div>
-            </div>
+            @endforeach
 
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
-
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
-
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
-
-
-
-            <div
-                class="relative bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-500 hover:scale-[1.03]">
-                <!-- Animated Glow Overlay -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-[#459FC2] via-white to-[#459FC2] opacity-0 group-hover:opacity-40 transition duration-500 mix-blend-multiply pointer-events-none">
-                </div>
-
-                <!-- Decorative Top Border -->
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#459FC2] to-[#459FC2]"></div>
-
-                <div class="relative z-10 flex flex-col items-center p-8">
-                    <!-- Icon Container -->
-                    <div
-                        class="w-24 h-24 rounded-full bg-gradient-to-br from-[#459FC2] to-[#459FC2] shadow-md flex items-center justify-center transform group-hover:rotate-3 transition duration-300">
-                        <img src="{{ asset('asset/img/residential.png') }}" alt="Studio"
-                            class="w-12 h-12 object-contain" />
-                    </div>
-
-                    <!-- Title -->
-                    <h2
-                        class="text-2xl font-bold text-gray-800 mt-5 tracking-wide group-hover:text-[#459FC2] transition duration-300">
-                        Studio
-                    </h2>
-
-                    <!-- Subtitle -->
-                    <p class="mt-1 text-sm text-gray-500 group-hover:text-gray-700 transition duration-300">
-                        8+ Available
-                    </p>
-
-                    <!-- Action Button (Optional) -->
-                    <button
-                        class="mt-4 text-sm px-4 py-2 bg-[#459FC2] text-white rounded-full font-medium shadow-md hover:bg-black transition duration-300">
-                        Explore
-                    </button>
-                </div>
-            </div>
 
 
             <!-- Add more cards as needed... -->

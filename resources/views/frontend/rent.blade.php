@@ -2,7 +2,7 @@
 @section('content')
     {{-- Banner --}}
     <div class="w-full h-[300px] md:h-[400px] relative">
-        <img src="{{ asset('asset/img/image1.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
+        <img src="{{ asset('asset/img/banner.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
         <div class="absolute inset-0 top-0 left-0 right-0 bg-black/50 items-center text-center pt-32">
             <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">
                 Find Your Dream Property
@@ -28,12 +28,12 @@
                         </svg>
                     </div>
                     <input type="text" placeholder="Search by property name..."
-                        class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent" />
                 </div>
 
                 <!-- Property Type -->
                 <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent">
                         <option disabled selected>Property Type</option>
                         <option>Luxury Villa</option>
                         <option>Penthouse</option>
@@ -50,7 +50,7 @@
 
                 <!-- Location -->
                 <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent">
                         <option disabled selected>Preferred Location</option>
                         <option>South Mumbai</option>
                         <option>Central Delhi</option>
@@ -67,7 +67,7 @@
 
                 <!-- Price Range -->
                 <div class="relative">
-                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <select class="w-full appearance-none px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent">
                         <option disabled selected>Price Range</option>
                         <option>Under ₹1 Cr</option>
                         <option>₹1-5 Cr</option>
@@ -84,7 +84,7 @@
 
                 <!-- Search Button -->
                 <button type="submit"
-                    class="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                    class="w-full bg-[#449EC2] hover:bg-sky-700 text-white font-semibold py-3 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -109,10 +109,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449EC2] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -120,16 +120,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -139,10 +139,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449EC2] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -150,16 +150,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -170,10 +170,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449EC2] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -181,23 +181,23 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-12">
-                    <button class="px-8 py-3 bg-blue-900 hover:bg-blue-800 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105">
+                    <button class="px-8 py-3 bg-[#449EC2] hover:bg-sky-800 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105">
                         View All Properties
                     </button>
                 </div>
@@ -208,7 +208,7 @@
     {{-- PROPERTY LISTING --}}
 
 
-    <section class="md:py-16 py-4 px-4 md:px-10 bg-blue-50">
+    <section class="md:py-16 py-4 px-4 md:px-10 bg-[#449EC2]/15">
 
         <div class="max-w-9xl mx-auto">
 
@@ -224,9 +224,9 @@
 
                <div class="w-full md:w-4/5 ">
                   <!-- Featured Tag -->
-                  <div class=" my-6 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-4 rounded-xl shadow-lg flex items-center justify-between">
+                  <div class=" my-6 bg-gradient-to-r from-sky-400 to-sky-700 text-white px-6 py-4 rounded-xl shadow-lg flex items-center justify-between">
                     <div>
-                        <span class="inline-block bg-yellow-500 text-blue-900 text-xs font-bold px-2 py-1 rounded uppercase">Premium</span>
+                        <span class="inline-block bg-yellow-500 text-sky-900 text-xs font-bold px-2 py-1 rounded uppercase">Premium</span>
                         <span class="text-sm md:text-base">Exclusive Listing</span>
                     </div>
                     <button class="text-xs font-semibold uppercase tracking-wide hover:underline">View All</button>
@@ -254,7 +254,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -285,7 +285,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -314,7 +314,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -345,7 +345,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -374,7 +374,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -405,7 +405,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -434,7 +434,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 
@@ -465,7 +465,7 @@
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> 3</span>
                                             <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H5a1 1 0 010-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path></svg> 3200 sqft</span>
                                         </div>
-                                        <span class="bg-blue-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
+                                        <span class="bg-sky-900/80 text-white text-xs px-2 py-1 rounded">New Listing</span>
                                     </div>
                                 </div>
 

@@ -12,7 +12,7 @@
     rel="stylesheet"
 />
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap" rel="stylesheet">
-   
+
 
 <style>
 /* icon  */
@@ -22,8 +22,8 @@
 /* end icon */
 
     /* Custom color palette */
-    .bg-blue { background-color: #0a192f; }
-    .bg-light-blue { background-color: #144fa1; }
+    .bg-blue { background-color: #459FC2; }
+    .bg-light-blue { background-color: #459FC2; }
     .text-navy-800 { color: #172a45; }
     .text-navy-700 { color: #2a4365; }
     .border-navy-800 { border-color: #172a45; }

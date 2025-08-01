@@ -2,7 +2,7 @@
 @section('content')
 {{-- Banner --}}
     <div class="w-full h-[300px] md:h-[400px] relative">
-        <img src="{{ asset('asset/img/image1.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
+        <img src="{{ asset('asset/img/banner.jpg') }}" alt="Property Banner" class="w-full h-full object-cover">
         <div class="absolute inset-0 top-0 left-0 right-0 bg-black/50 items-center text-center pt-32">
             <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">
                 Find Your Dream Property
@@ -62,10 +62,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -99,7 +99,7 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
                                 class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
@@ -110,16 +110,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
                                 class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
@@ -147,16 +147,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -173,10 +173,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -184,16 +184,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -210,10 +210,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -221,16 +221,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -247,10 +247,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -258,16 +258,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -284,10 +284,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -295,16 +295,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -319,10 +319,10 @@
                             <img src="https://demo.htmlcodex.com/2259/real-estate-html-template/img/property-1.jpg"
                                 alt="Golden Urban House" class="w-full h-60 object-cover" />
                             <span
-                                class="absolute top-3 left-3 bg-blue-900 text-white text-xs font-semibold p-3 rounded shadow">For
+                                class="absolute top-3 left-3 bg-[#449FC3] text-white text-xs font-semibold p-3 rounded shadow">For
                                 Rent</span>
                             <span
-                                class="absolute bottom-3 left-3 bg-white text-blue-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
+                                class="absolute bottom-3 left-3 bg-white text-sky-900 text-xs font-semibold p-3 rounded shadow">Apartment</span>
                         </div>
                         <div class="p-5">
                             <h2 class="text-xl font-semibold text-green-600 mb-1">Price: $12,345</h2>
@@ -330,16 +330,16 @@
                             <p class="text-gray-600 text-sm mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             </p>
                             <p class="flex items-center text-sm text-gray-500 mb-4">
-                                <span class="material-symbols-outlined text-blue-500 mr-1">location_on</span>123 Street,
+                                <span class="material-symbols-outlined text-sky-500 mr-1">location_on</span>123 Street,
                                 New York, USA
                             </p>
                             <div class="flex justify-between text-sm text-gray-700 border-t pt-3">
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">crop_square</span>1000 Sqft</span>
+                                        class="material-symbols-outlined text-sky-500">crop_square</span>1000 Sqft</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bed</span>3 Bed</span>
+                                        class="material-symbols-outlined text-sky-500">bed</span>3 Bed</span>
                                 <span class="flex items-center gap-1"><span
-                                        class="material-symbols-outlined text-blue-500">bathtub</span>2 Bath</span>
+                                        class="material-symbols-outlined text-sky-500">bathtub</span>2 Bath</span>
                             </div>
                         </div>
                     </div>
@@ -350,7 +350,7 @@
 
             <!-- Browse More Button -->
             <div class="flex justify-center my-6">
-                <button class="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition">
+                <button class="bg-[#449FC3] hover:bg-sky-900 text-white px-6 py-3 rounded-lg font-semibold transition">
                     Browse More Properties
                 </button>
             </div>

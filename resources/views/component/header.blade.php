@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>BZP Real Estate | Premium Properties</title>
+  <title>Vedata x Reality One</title>
   <meta name="description" content="Find your dream home with BZP Real Estate. Browse luxury properties, villas, and commercial spaces." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="icon" href="{{ asset('asset/img/logo1.png') }}" type="image/x-icon">
+
   <style>
     .nav-transition {
       transition: background-color 0.3s ease, box-shadow 0.3s ease;

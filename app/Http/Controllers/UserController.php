@@ -52,8 +52,7 @@ class UserController extends Controller implements HasMiddleware
             'email' => 'required|email|unique:users,email',
             'phone_number' => ['nullable', 'string', 'regex:/^\+?[0-9]{7,15}$/'],
             'password' => 'required|min:6',
-            'roles' => 'array|required',
-            'roles.*' => 'exists:roles,id',
+            'role' => 'required|exists:roles,name',
         ]);
 
         // Create user
@@ -65,7 +64,8 @@ class UserController extends Controller implements HasMiddleware
         ]);
 
         // Assign roles
-        $user->roles()->attach($request->roles);
+        // $user->roles()->attach($request->roles);
+        $user->syncRoles([$request->role]);
 
         return redirect()->route('user.index')->with('success', 'User created successfully.');
     }
@@ -86,8 +86,7 @@ class UserController extends Controller implements HasMiddleware
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone_number' => ['nullable', 'string', 'regex:/^\+?[0-9]{7,15}$/'],
-            'roles' => 'array|required',
-            'roles.*' => 'exists:roles,id',
+            'role' => 'required|exists:roles,name',
             'password' => 'nullable|min:6', // Password is optional when updating
         ]);
 
@@ -100,7 +99,7 @@ class UserController extends Controller implements HasMiddleware
         ]);
 
         // Sync roles to update user roles correctly
-        $user->roles()->sync($request->roles);
+        $user->syncRoles([$request->role]); // e.g., "Admin"
 
         return redirect()->route('user.index')->with('success', 'User updated successfully.');
     }

@@ -108,7 +108,7 @@
                   </div>
                   @endif
               
-                  <div>
+                  {{-- <div>
                       <label class="block text-gray-700 font-medium mb-2">Roles</label>
                       <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                           @foreach($roles as $role)
@@ -120,7 +120,22 @@
                               </label>
                           @endforeach
                       </div>
-                  </div>
+                  </div> --}}
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Roles</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            @foreach($roles as $role)
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="role" value="{{ $role->name }}"
+                                        class="rounded border-gray-300 focus:ring-blue-500"
+                                        {{ (isset($selectedRole) && $selectedRole == $role->id) ? 'checked' : '' }}>
+                                    <span>{{ $role->name }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+
               
                   <div>
                       <button type="submit" class="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition">

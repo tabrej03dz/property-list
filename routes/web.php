@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Response;
@@ -121,6 +122,14 @@ Route::middleware('auth')->group(function () {
     });
 
 
+    Route::resource('lands', LandController::class);
+    Route::controller(LandController::class)->prefix('lands')->name('lands.')->group(function () {
+        Route::post('publish/{land}','publish')->name('publish');
+        Route::post('unpublish/{land}','unpublish')->name('unpublish');
+        Route::post('visibility/{land}','setVisibility')->name('visibility');
+        Route::post('restore/{id}','restore')->name('restore');
+        Route::delete('force/{id}','forceDelete')->name('forceDelete');
+    });
 
 
 });

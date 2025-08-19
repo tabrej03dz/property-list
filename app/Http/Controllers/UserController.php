@@ -74,9 +74,9 @@ class UserController extends Controller implements HasMiddleware
     public function edit(User $user)
     {
         $roles = Role::orderBy('name', 'ASC')->get();
-        $selectedRoles = $user->roles()->pluck('id')->toArray(); // ✅ Get assigned role IDs
+        $selectedRoleName = $user->getRoleNames()->first(); // ✅ Get assigned role IDs
 
-        return view('user.edit', compact('user', 'roles', 'selectedRoles'));
+        return view('user.edit', compact('user', 'roles', 'selectedRoleName'));
     }
 
 

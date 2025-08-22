@@ -29,6 +29,10 @@ class HomeController extends Controller
         return view('frontend.index', compact('propertyTypes', 'properties'));
     }
 
+    public function landproperty(){
+        return view('frontend.landproperty');
+    }
+
     public function about(){
         return view('frontend.about');
     }

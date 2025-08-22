@@ -48,9 +48,6 @@ class LandController extends Controller
     {
         $data = $this->validateData($request);
 
-        // csv -> arrays
-        $data['amenities'] = $this->csvToArray($request->input('amenities_csv'));
-        $data['tags']      = $this->csvToArray($request->input('tags_csv'));
 
         // slug
         $data['slug'] = $this->uniqueSlug($data['slug'] ?? null, $data['title']);
@@ -203,7 +200,7 @@ class LandController extends Controller
             'fsi'             => 'nullable|numeric|min:0',
 
             'ownership'       => 'nullable|in:freehold,leasehold,power_of_attorney,cooperative,company,other',
-            'tenure_years'    => 'nullable|integer|min:0|max:500',
+            'tenure_years'    => 'nullable|integer|min:0',
 
             'rera_id'         => 'nullable|string|max:100',
             'survey_number'   => 'nullable|string|max:100',

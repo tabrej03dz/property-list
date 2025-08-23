@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Land;
+use App\Models\LandImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -29,7 +30,7 @@ class LandController extends Controller
         if ($request->boolean('with_trashed')) $q->withTrashed();
         if ($request->boolean('only_trashed')) $q->onlyTrashed();
 
-        $q->orderBy('sort_order','asc')->orderBy('created_at','desc');
+        $q->orderBy('created_at','desc');
 
         $lands = $q->paginate(15)->appends($request->query());
 
@@ -59,10 +60,24 @@ class LandController extends Controller
 
         // uploads
         [$primary, $gallery] = $this->handleUploads($request);
-        if ($primary)  $data['primary_image'] = $primary;
-        if ($gallery)  $data['gallery'] = $gallery;
+        // if ($primary)  $data['primary_image'] = $primary;
+        // if ($gallery)  $data['gallery'] = $gallery;
+
+        [$primary, $galleryFiles] = $this->handleUploads($request);
+
+        if ($primary) {
+            $data['primary_image'] = $primary;
+        }
 
         $land = Land::create($data);
+
+        
+        // Save gallery images in LandImage model
+        if (!empty($galleryFiles)) {
+            foreach ($galleryFiles as $path) {
+                $land->images()->create(['path' => $path]);
+            }
+        }
 
         // rare race: ensure unique slug
         if (Land::where('slug', $land->slug)->where('id','!=',$land->id)->exists()) {
@@ -104,18 +119,21 @@ class LandController extends Controller
         }
 
         // uploads (replace if provided)
-        [$primary, $gallery] = $this->handleUploads($request);
+         [$primary, $galleryFiles] = $this->handleUploads($request);
+
         if ($primary) {
-            $this->safeDelete($land->primary_image);
             $data['primary_image'] = $primary;
-        }
-        if ($gallery) {
-            $this->safeDeleteMany($land->gallery ?? []);
-            $data['gallery'] = $gallery;
         }
 
         $land->update($data);
 
+        // Replace gallery if new files uploaded
+    if (!empty($galleryFiles)) {
+        // $land->images()->delete();
+        foreach ($galleryFiles as $path) {
+            $land->images()->create(['path' => $path]);
+        }
+    }
         return redirect()->route('lands.index')->with('success', 'Land updated.');
     }
 
@@ -304,5 +322,13 @@ class LandController extends Controller
     private function safeDeleteMany(array $paths): void
     {
         foreach ($paths as $p) $this->safeDelete($p);
+    }
+
+    public function landImageDelete(LandImage $image){
+        if($image->path && Storage::disk('public')->exists($image->path)){
+            Storage::disk('public')->delete($image->path);
+        }
+        $image->delete();
+        return back()->with('success', 'Image deleted succeessfully');
     }
 }

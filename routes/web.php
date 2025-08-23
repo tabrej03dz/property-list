@@ -130,6 +130,7 @@ Route::middleware('auth')->group(function () {
         Route::post('visibility/{land}','setVisibility')->name('visibility');
         Route::post('restore/{id}','restore')->name('restore');
         Route::delete('force/{id}','forceDelete')->name('forceDelete');
+        Route::get('image/delete/{image}','landImageDelete')->name('image.delete');
     });
 
 

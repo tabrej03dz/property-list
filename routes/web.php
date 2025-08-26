@@ -26,7 +26,10 @@ Route::get('/rent', [HomeController::class, 'rent'])->name('rent');
 //Route::get('/villa', [HomeController::class, 'villa'])->name('villa');
 Route::get('/category-properties/{propertyType}', [HomeController::class, 'categoryProperties'])->name('category-properties');
 Route::get('/landproperty', [HomeController::class, 'landproperty'])->name('landproperty');
-//Route::get('/land', [HomeController::class, 'land'])->name('land');
+Route::get('/land-details/{land}', [HomeController::class, 'landDetails'])->name('land.details');
+Route::post('/land-enquiry/{land}', [LandController::class, 'landEnquiry'])->name('land.enquiry');
+
+// Route::get('/land', [HomeController::class, 'land'])->name('land');
 //Route::get('/commercial', [HomeController::class, 'commercial'])->name('commercial');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/detail/{property}', [HomeController::class, 'detail'])->name('detail');
@@ -35,7 +38,7 @@ Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
 Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
 
-Route::post('contact/save', [HomeController::class, 'contactSave'])->name('contact.save');
+Route::post('contact/save/{property?}', [HomeController::class, 'contactSave'])->name('contact.save');
 
 
 

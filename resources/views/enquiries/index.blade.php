@@ -23,8 +23,7 @@
                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Email</th>
                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Phone</th>
                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Message</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Property</th>
-                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Status</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Listing</th>                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase">Status</th>
                     <th class="px-6 py-3 text-right text-sm font-medium text-gray-600 uppercase">Actions</th>
                 </tr>
                 </thead>
@@ -36,7 +35,7 @@
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $enquiry->email }}</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $enquiry->phone }}</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ $enquiry->message }}</td>
-                        <td class="px-6 py-4 text-sm text-blue-600">
+                        {{-- <td class="px-6 py-4 text-sm text-blue-600">
                             @if($enquiry->property)
                                 <a href="{{ route('properties.edit', $enquiry->property->id) }}" class="hover:underline">
                                     {{ $enquiry->property->title }}
@@ -44,7 +43,40 @@
                             @else
                                 -
                             @endif
+                        </td> --}}
+
+                        <td class="px-6 py-4 text-sm">
+                            @php
+                                $target = $enquiry->enquirable; // Land | Property | null
+                                $type   = $target ? class_basename($target) : null;
+                                $title  = $target->title ?? null;
+
+                                // Decide the link depending on the model type
+                                $link = null;
+                                if ($target instanceof \App\Models\Land) {
+                                    // Use edit or show route—pick the one you have
+                                    $link = route('lands.show', $target->id);   // or route('lands.show', $target->slug ?? $target->id)
+                                } elseif ($target instanceof \App\Models\Property) {
+                                    $link = route('properties.show', $target->id); // or route('properties.show', $target->slug ?? $target->id)
+                                }
+                            @endphp
+
+                            @if($target)
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium
+                                            {{ $type === 'Land' ? 'bg-emerald-50 text-emerald-700' : 'bg-indigo-50 text-indigo-700' }}">
+                                    {{ $type }}
+                                </span>
+
+                                @if($link && $title)
+                                    <a href="{{ $link }}" class="ml-2 text-blue-600 hover:underline">{{ $title }}</a>
+                                @else
+                                    <span class="ml-2 text-gray-700">{{ $title ?? '—' }}</span>
+                                @endif
+                            @else
+                                <span class="text-gray-500">General Enquiry</span>
+                            @endif
                         </td>
+
                         <td class="px-6 py-4 text-sm text-gray-600 max-w-xs truncate">
                             <form action="{{ route('enquiries.status', $enquiry) }}" method="POST">
                                 @csrf

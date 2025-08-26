@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Enquiry;
+use App\Models\Land;
 use App\Models\Property;
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class HomeController extends Controller
     }
 
     public function landproperty(){
-        return view('frontend.landproperty');
+        $lands = Land::all();
+        return view('frontend.landproperty', compact('lands'));
     }
 
     public function about(){
@@ -141,16 +143,69 @@ class HomeController extends Controller
         return view('frontend.disclaimer');
     }
 
-    public function contactSave(Request $request){
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'nullable',
-            'message' => 'nullable',
+    // public function contactSave(Request $request){
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'phone' => 'nullable',
+    //         'message' => 'nullable',
+    //     ]);
+
+    //     Enquiry::create($request->all() + ['user_id' => auth()->check() ? auth()->id() : null]);
+    //     return back()->with('success', 'Form submitted successfully we contact you back soon!');
+    // }
+
+
+    public function contactSave(Request $request, Property $property = null)
+    {
+        // 1) Validate input
+        $validated = $request->validate([
+            'name'        => ['required','string','max:191'],
+            'email'       => ['required','email','max:191'],
+            'phone'       => ['nullable','string','max:30'],
+            'message'     => ['nullable','string'],
+            // optional: allow passing property_id when route param not used
+            'property_id' => ['nullable','integer','exists:properties,id'],
         ]);
 
-        Enquiry::create($request->all() + ['user_id' => auth()->check() ? auth()->id() : null]);
-        return back()->with('success', 'Form submitted successfully we contact you back soon!');
+        // 2) Build enquiry
+        $enquiry = new Enquiry();
+        $enquiry->name    = $validated['name'];
+        $enquiry->email   = $validated['email'];
+        $enquiry->phone   = $validated['phone']   ?? null;
+        $enquiry->message = $validated['message'] ?? null;
+        $enquiry->status  = 'pending';
+
+        // Optional: track who submitted (if logged in)
+        if (auth()->check()) {
+            $enquiry->user_id = auth()->id();
+        }
+
+        // 3) Attach to Property (or leave null for general enquiry)
+        if ($property) {
+            // route model binding: /properties/{property}/enquiry
+            $enquiry->enquirable()->associate($property);
+        } elseif (!empty($validated['property_id'])) {
+            // form passed property_id instead of route param
+            $propModel = Property::findOrFail($validated['property_id']);
+            $enquiry->enquirable()->associate($propModel);
+        } else {
+            // general enquiry (no association)
+            $enquiry->enquirable_type = null;
+            $enquiry->enquirable_id   = null;
+        }
+
+        $enquiry->save();
+
+        // 4) Respond
+        return back()->with('success', $property
+            ? 'Thanks! Your enquiry for this property has been submitted.'
+            : 'Thanks! Your enquiry has been submitted.');
+    }
+
+
+    public function landDetails(Land $land){
+        return view('frontend.land-details', compact('land'));
     }
 }
 

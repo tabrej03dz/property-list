@@ -16,7 +16,7 @@
     {{-- Search Form --}}
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 md:-mt-12">
         <div class="bg-white rounded-xl shadow-lg px-6 py-8 md:py-10">
-            <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
+            <form  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
                 <input type="text" placeholder="Search"
                     class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
@@ -73,23 +73,30 @@
 
             <!-- Overlay Content -->
             <div class="relative z-10 w-full h-full flex items-center justify-center p-6 md:p-10">
-                <form class="bg-white/10 backdrop-blur-md w-full max-w-3xl rounded-xl p-6 md:p-10 space-y-6 border border-white/20 text-white">
+                <form action="{{ route('contact.save') }}" method="post" class="bg-white/10 backdrop-blur-md w-full max-w-3xl rounded-xl p-6 md:p-10 space-y-6 border border-white/20 text-white">
+                    @csrf
                     <!-- Title -->
                     <h2 class="text-3xl md:text-4xl font-extrabold text-center text-white">Get in Touch</h2>
 
                     <!-- Fields -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name -->
-                        <input type="text" placeholder="Your Name"
+                        <input type="text" placeholder="Your Name" name="name"
                             class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" />
 
                         <!-- Email -->
-                        <input type="email" placeholder="Your Email"
+                        <input type="email" placeholder="Your Email" name="email"
+                            class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Email -->
+                        <input type="number" placeholder="Your Phone" name="phone"
                             class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400" />
                     </div>
 
                     <!-- Message -->
-                    <textarea rows="4" placeholder="Your Message"
+                    <textarea rows="4" placeholder="Your Message" name="message"
                         class="w-full px-4 py-3 bg-white/20 text-white placeholder-white/70 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-400 resize-none"></textarea>
 
                     <!-- Consent -->

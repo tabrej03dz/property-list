@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Property extends Model
 {
@@ -28,4 +29,6 @@ class Property extends Model
     public function city(){
         return $this->belongsTo(City::class, 'city_id');
     }
+
+     public function enquiries(): MorphMany { return $this->morphMany(Enquiry::class, 'enquirable'); }
 }

@@ -23,399 +23,65 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {{-- ====== Property Card 1 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">Premium Agricultural Land</h3>
-                        <span class="text-lg font-semibold text-green-600">₹2.5 Cr</span>
+            @foreach ($lands as $land)
+                {{-- ====== Property Card 1 ====== --}}
+                <div
+                    class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <span
+                            class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
+                            Sale</span>
                     </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF12345</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> East</p>
-                            <p><span class="font-medium">Shape:</span> Rectangular</p>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-900">{{$land->title}}</h3>
+                            <span class="text-lg font-semibold text-green-600">{{$land->currency .' '. $land->price }}</span>
                         </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Pune</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
+                        <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">{{$land->reference_code}}</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
+                            <div>
+                                <p><span class="font-medium">Area:</span> {{$land->area_value .' '. $land->area_unit }} Acres</p>
+                                <p><span class="font-medium">Facing:</span> {{$land->facing }}</p>
+                                <p><span class="font-medium">Shape:</span> {{$land->shape  }}</p>
+                            </div>
+                            <div>
+                                <p><span class="font-medium">Location:</span>{{$land->location }}</p>
+                                <p><span class="font-medium">Land Use:</span> {{$land->land_use }}</p>
+                                <p><span class="font-medium">Road:</span> {{$land->road_width .' '. $land->road_unit }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
+                        <div class="pt-4 flex justify-between items-center">
+                            <!-- Trigger -->
+                            <div class="flex justify-center mt-10">
+                                {{-- <button onclick="openModal()"
+                                    class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
+                                    View Details
+                                </button> --}}
+                                <a href="{{ route('land.details', $land->id) }}"
+                                    class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
+                                    View Details
+                                </a>
+                            </div>
+                            <div class="flex justify-center mt-10">
 
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 2 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://cdn.pixabay.com/photo/2012/10/26/01/33/soyuz-63025_1280.jpg"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">River-Facing Farmland</h3>
-                        <span class="text-lg font-semibold text-green-600">₹1.8 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF23456</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 3.5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> North</p>
-                            <p><span class="font-medium">Shape:</span> Irregular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Nashik</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
+                                <button
+                                    class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
+                                    Contact Agent
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-            {{-- ====== Property Card 1 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">Premium Agricultural Land</h3>
-                        <span class="text-lg font-semibold text-green-600">₹2.5 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF12345</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> East</p>
-                            <p><span class="font-medium">Shape:</span> Rectangular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Pune</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 2 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://cdn.pixabay.com/photo/2012/10/26/01/33/soyuz-63025_1280.jpg"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">River-Facing Farmland</h3>
-                        <span class="text-lg font-semibold text-green-600">₹1.8 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF23456</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 3.5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> North</p>
-                            <p><span class="font-medium">Shape:</span> Irregular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Nashik</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 1 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">Premium Agricultural Land</h3>
-                        <span class="text-lg font-semibold text-green-600">₹2.5 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF12345</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> East</p>
-                            <p><span class="font-medium">Shape:</span> Rectangular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Pune</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 2 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://cdn.pixabay.com/photo/2012/10/26/01/33/soyuz-63025_1280.jpg"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">River-Facing Farmland</h3>
-                        <span class="text-lg font-semibold text-green-600">₹1.8 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF23456</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 3.5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> North</p>
-                            <p><span class="font-medium">Shape:</span> Irregular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Nashik</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 1 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">Premium Agricultural Land</h3>
-                        <span class="text-lg font-semibold text-green-600">₹2.5 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF12345</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> East</p>
-                            <p><span class="font-medium">Shape:</span> Rectangular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Pune</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ====== Property Card 2 ====== --}}
-            <div
-                class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div class="relative">
-                    <img src="https://cdn.pixabay.com/photo/2012/10/26/01/33/soyuz-63025_1280.jpg"
-                        class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span
-                        class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
-                        Sale</span>
-                </div>
-                <div class="p-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-xl font-bold text-gray-900">River-Facing Farmland</h3>
-                        <span class="text-lg font-semibold text-green-600">₹1.8 Cr</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">Reference Code: <span class="font-medium text-gray-800">REF23456</span>
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div>
-                            <p><span class="font-medium">Area:</span> 3.5 Acres</p>
-                            <p><span class="font-medium">Facing:</span> North</p>
-                            <p><span class="font-medium">Shape:</span> Irregular</p>
-                        </div>
-                        <div>
-                            <p><span class="font-medium">Location:</span> Nashik</p>
-                            <p><span class="font-medium">Land Use:</span> Agricultural</p>
-                            <p><span class="font-medium">Road:</span> 30 ft</p>
-                        </div>
-                    </div>
-                    <div class="pt-4 flex justify-between items-center">
-                        <!-- Trigger -->
-                        <div class="flex justify-center mt-10">
-                            <button onclick="openModal()"
-                                class="px-6 py-3 bg-sky-600 text-white font-medium rounded-lg shadow-md hover:bg-sky-700 transition">
-                                View Details
-                            </button>
-                        </div>
-                        <div class="flex justify-center mt-10">
-
-                            <button
-                                class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
-                                Contact Agent
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- More static property cards can be added similarly --}}
-
+            @endforeach
         </div>
     </div>
 
 
     {{-- ================== Modal (Property 1) ================== --}}
-    <div id="property1" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50 target:flex">
+    {{-- <div id="property1" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50 target:flex">
         <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-y-auto max-h-[90vh]">
             <a href="#" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
                 <span class="material-symbols-outlined">close</span>
@@ -443,42 +109,41 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     {{-- ================== Modal (Property 2) ================== --}}
-    {{-- <div id="property2"
-    class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50 target:flex">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-y-auto max-h-[90vh]">
-        <a href="#" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
-            <span class="material-symbols-outlined">close</span>
-        </a>
-        <div class="p-6 space-y-6">
-            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
-                class="w-full h-64 object-cover rounded-xl" />
-            <h3 class="text-2xl font-bold text-gray-900">River-Facing Farmland</h3>
-            <p class="text-lg font-semibold text-green-600">₹1.8 Cr (total price)</p>
+    {{-- <div id="property2" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50 target:flex">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-y-auto max-h-[90vh]">
+            <a href="#" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <span class="material-symbols-outlined">close</span>
+            </a>
+            <div class="p-6 space-y-6">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
+                    class="w-full h-64 object-cover rounded-xl" />
+                <h3 class="text-2xl font-bold text-gray-900">River-Facing Farmland</h3>
+                <p class="text-lg font-semibold text-green-600">₹1.8 Cr (total price)</p>
 
-            <div class="grid grid-cols-2 gap-4 text-sm">
-                <p><span class="font-medium">Area:</span> 3.5 Acres</p>
-                <p><span class="font-medium">Facing:</span> North</p>
-                <p><span class="font-medium">Shape:</span> Irregular</p>
-                <p><span class="font-medium">Road:</span> 30 ft</p>
-            </div>
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <p><span class="font-medium">Area:</span> 3.5 Acres</p>
+                    <p><span class="font-medium">Facing:</span> North</p>
+                    <p><span class="font-medium">Shape:</span> Irregular</p>
+                    <p><span class="font-medium">Road:</span> 30 ft</p>
+                </div>
 
-            <div class="flex gap-4">
-                <button
-                    class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium">
-                    Contact Agent
-                </button>
-                <button
-                    class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium">
-                    Schedule Visit
-                </button>
+                <div class="flex gap-4">
+                    <button
+                        class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium">
+                        Contact Agent
+                    </button>
+                    <button
+                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium">
+                        Schedule Visit
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</div> --}}
+    </div> --}}
 
 
 

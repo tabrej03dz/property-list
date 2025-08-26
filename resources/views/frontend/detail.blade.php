@@ -498,9 +498,9 @@
                 <!-- Contact Form -->
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-32">
                     <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Agent</h3>
-                    <form action="{{route('contact.save')}}" method="post">
+                    <form action="{{route('contact.save', $property->id)}}" method="post">
                         @csrf
-                        <input type="hidden" name="property_id" value="{{$property->id}}">
+                        
                         <div class="mb-4">
                             <input type="text" name="name" placeholder="Your Name"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">

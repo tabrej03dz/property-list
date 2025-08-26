@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Land;
 use App\Models\LandImage;
+use App\Models\Enquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -331,4 +332,55 @@ class LandController extends Controller
         $image->delete();
         return back()->with('success', 'Image deleted succeessfully');
     }
+
+
+    public function landEnquiry(Request $request, Land $land = null)
+    {
+        // 1) Validate input (email/name required as per your migration)
+        $validated = $request->validate([
+            'name'    => ['required','string','max:191'],
+            'email'   => ['required','email','max:191'],
+            'phone'   => ['nullable','string','max:30'],
+            'message' => ['nullable','string'],
+            // optional: allow passing land_id when route param not used
+            'land_id' => ['nullable','integer','exists:lands,id'],
+        ]);
+
+        // 2) Build enquiry
+        $enquiry = new Enquiry();
+        $enquiry->name    = $validated['name'];
+        $enquiry->email   = $validated['email'];
+        $enquiry->phone   = $validated['phone']   ?? null;
+        $enquiry->message = $validated['message'] ?? null;
+        $enquiry->status  = 'pending'; // ensure default
+
+        // Optional: track who submitted (if logged in)
+        if (auth()->check()) {
+            $enquiry->user_id = auth()->id();
+        }
+
+        // 3) Attach to Land (or leave null for general enquiry)
+        if ($land) {
+            // route model binding: /lands/{land}/enquiry
+            $enquiry->enquirable()->associate($land);
+        } elseif (!empty($validated['land_id'])) {
+            // form passed land_id instead of route param
+            $landModel = Land::findOrFail($validated['land_id']);
+            $enquiry->enquirable()->associate($landModel);
+        } else {
+            // general enquiry (no association)
+            $enquiry->enquirable_type = null;
+            $enquiry->enquirable_id   = null;
+        }
+
+        $enquiry->save();
+
+        // 4) Respond (AJAX or normal form post)
+        
+        return back()->with('success', $land
+            ? 'Thanks! Your enquiry for this land has been submitted.'
+            : 'Thanks! Your enquiry has been submitted.');
+    }
+
 }
+

@@ -31,7 +31,7 @@ class HomeController extends Controller
     }
 
     public function landproperty(){
-        $lands = Land::all();
+        $lands = Land::whereIn('status', ['published', 'available'])->orderBy('created_at', 'desc')->get();
         return view('frontend.landproperty', compact('lands'));
     }
 

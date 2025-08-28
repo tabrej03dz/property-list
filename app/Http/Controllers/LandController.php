@@ -54,6 +54,8 @@ class LandController extends Controller
         // slug
         $data['slug'] = $this->uniqueSlug($data['slug'] ?? null, $data['title']);
 
+        $data['agent_id'] = auth()->user()->id;
+
         // auto publish timestamp
         if (($data['status'] ?? 'draft') === 'published' && empty($data['published_at'])) {
             $data['published_at'] = now();
@@ -72,7 +74,7 @@ class LandController extends Controller
 
         $land = Land::create($data);
 
-        
+
         // Save gallery images in LandImage model
         if (!empty($galleryFiles)) {
             foreach ($galleryFiles as $path) {
@@ -242,8 +244,8 @@ class LandController extends Controller
             'rainwater_harvesting' => 'nullable|boolean',
             'irrigation_facility'  => 'nullable|boolean',
 
-            'documents'       => 'nullable|array',
-            'documents.*'     => 'string|max:2048',
+//            'documents'       => 'nullable|array',
+//            'documents.*'     => 'string|max:2048',
 
             'primary_image_file' => 'nullable|image|max:5120',
             'gallery_files'      => 'nullable|array',
@@ -376,7 +378,7 @@ class LandController extends Controller
         $enquiry->save();
 
         // 4) Respond (AJAX or normal form post)
-        
+
         return back()->with('success', $land
             ? 'Thanks! Your enquiry for this land has been submitted.'
             : 'Thanks! Your enquiry has been submitted.');

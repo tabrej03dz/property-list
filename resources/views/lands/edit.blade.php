@@ -81,15 +81,15 @@
                     <div>
                         <label class="block text-sm font-medium">Status</label>
                         <select name="status" class="border p-2 rounded w-full">
-                            @foreach(['draft','published','archived'] as $opt)
+                            @foreach(['draft','published','archived', 'available', 'sold'] as $opt)
                                 <option value="{{ $opt }}" @selected(old('status', $land->status)===$opt)>{{ ucfirst($opt) }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium">User (Owner)</label>
-                        <input name="user_id" type="number" value="{{ old('user_id', $land->user_id) }}" class="border p-2 rounded w-full" placeholder="User ID (optional)">
-                    </div>
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">User (Owner)</label>--}}
+{{--                        <input name="user_id" type="number" value="{{ old('user_id', $land->user_id) }}" class="border p-2 rounded w-full" placeholder="User ID (optional)">--}}
+{{--                    </div>--}}
 
                     <div class="md:col-span-3">
                         <label class="block text-sm font-medium">Description</label>
@@ -319,16 +319,8 @@
 
             {{-- Amenities, Tags, Documents --}}
             <section>
-                <h4 class="text-lg font-semibold text-gray-900 mb-3">Amenities, Tags & Documents</h4>
+                <h4 class="text-lg font-semibold text-gray-900 mb-3">Documents</h4>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium">Amenities (comma separated)</label>
-                        <input name="amenities_csv" type="text" value="{{ old('amenities_csv', $amenitiesCsv) }}" class="border p-2 rounded w-full" placeholder="e.g. security,clubhouse">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Tags (comma separated)</label>
-                        <input name="tags_csv" type="text" value="{{ old('tags_csv', $tagsCsv) }}" class="border p-2 rounded w-full" placeholder="e.g. corner,main-road">
-                    </div>
                     <div>
                         <label class="block text-sm font-medium">Documents (URLs)</label>
                         @foreach($documents as $i => $doc)
@@ -357,8 +349,8 @@
                             <div class="flex gap-2 mt-2 flex-wrap">
                                 @foreach($land->images as $g)
                                     <div class="relative inline-block m-2 w-28 h-20">
-                                        <img src="{{ asset('storage/'. $g->path) }}" 
-                                            alt="Gallery" 
+                                        <img src="{{ asset('storage/'. $g->path) }}"
+                                            alt="Gallery"
                                             class="w-28 h-20 object-cover rounded border">
 
                                         <!-- Cross Button -->
@@ -373,14 +365,14 @@
                             </div>
                         @endif
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium">Video URL</label>
-                        <input name="video_url" type="url" value="{{ old('video_url', $land->video_url) }}" class="border p-2 rounded w-full">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Virtual Tour URL</label>
-                        <input name="virtual_tour_url" type="url" value="{{ old('virtual_tour_url', $land->virtual_tour_url) }}" class="border p-2 rounded w-full">
-                    </div>
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">Video URL</label>--}}
+{{--                        <input name="video_url" type="url" value="{{ old('video_url', $land->video_url) }}" class="border p-2 rounded w-full">--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">Virtual Tour URL</label>--}}
+{{--                        <input name="virtual_tour_url" type="url" value="{{ old('virtual_tour_url', $land->virtual_tour_url) }}" class="border p-2 rounded w-full">--}}
+{{--                    </div>--}}
                 </div>
             </section>
 

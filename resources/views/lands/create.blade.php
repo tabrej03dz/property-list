@@ -62,15 +62,15 @@
                     <div>
                         <label class="block text-sm font-medium">Status</label>
                         <select name="status" class="border p-2 rounded w-full">
-                            @foreach(['draft','published','archived'] as $opt)
+                            @foreach(['draft','published','archived', 'available', 'sold'] as $opt)
                                 <option value="{{ $opt }}" @selected(old('status')==$opt)>{{ ucfirst($opt) }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium">User (Owner)</label>
-                        <input name="user_id" type="number" value="{{ old('user_id') }}" class="border p-2 rounded w-full" placeholder="User ID (optional)">
-                    </div>
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">User (Owner)</label>--}}
+{{--                        <input name="user_id" type="number" value="{{ old('user_id') }}" class="border p-2 rounded w-full" placeholder="User ID (optional)">--}}
+{{--                    </div>--}}
 
                     <div class="md:col-span-3">
                         <label class="block text-sm font-medium">Description</label>
@@ -300,16 +300,8 @@
 
             {{-- Amenities, Tags, Documents --}}
             <section>
-                <h4 class="text-lg font-semibold text-gray-900 mb-3">Amenities, Tags & Documents</h4>
+                <h4 class="text-lg font-semibold text-gray-900 mb-3">Documents</h4>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium">Amenities (comma separated)</label>
-                        <input name="amenities_csv" type="text" value="{{ old('amenities_csv') }}" class="border p-2 rounded w-full" placeholder="e.g. security,clubhouse">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Tags (comma separated)</label>
-                        <input name="tags_csv" type="text" value="{{ old('tags_csv') }}" class="border p-2 rounded w-full" placeholder="e.g. corner,main-road">
-                    </div>
                     <div>
                         <label class="block text-sm font-medium">Documents (URLs)</label>
                         {{-- Add a few inputs; you can duplicate in UI as needed --}}
@@ -332,14 +324,14 @@
                         <label class="block text-sm font-medium">Gallery (multiple)</label>
                         <input name="gallery_files[]" type="file" multiple class="border p-2 rounded w-full">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium">Video URL</label>
-                        <input name="video_url" type="url" value="{{ old('video_url') }}" class="border p-2 rounded w-full">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium">Virtual Tour URL</label>
-                        <input name="virtual_tour_url" type="url" value="{{ old('virtual_tour_url') }}" class="border p-2 rounded w-full">
-                    </div>
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">Video URL</label>--}}
+{{--                        <input name="video_url" type="url" value="{{ old('video_url') }}" class="border p-2 rounded w-full">--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <label class="block text-sm font-medium">Virtual Tour URL</label>--}}
+{{--                        <input name="virtual_tour_url" type="url" value="{{ old('virtual_tour_url') }}" class="border p-2 rounded w-full">--}}
+{{--                    </div>--}}
                 </div>
             </section>
 
@@ -394,7 +386,7 @@
             {{-- SEO --}}
             <section>
                 <h4 class="text-lg font-semibold text-gray-900 mb-3">SEO</h4>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="md:col-span-3">
                         <label class="block text-sm font-medium">Meta Title</label>
                         <input name="meta_title" type="text" value="{{ old('meta_title') }}" class="border p-2 rounded w-full">
@@ -408,8 +400,8 @@
                         <input name="meta_keywords" type="text" value="{{ old('meta_keywords') }}" class="border p-2 rounded w-full" placeholder="comma,separated,keywords">
                     </div>
 
-                
-                    
+
+
                 </div>
             </section>
 

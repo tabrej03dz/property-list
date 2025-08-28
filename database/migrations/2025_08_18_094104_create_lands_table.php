@@ -22,7 +22,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
 
             $table->enum('listing_type', ['sale', 'rent', 'lease'])->default('sale');
-            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+            $table->enum('status', ['draft', 'published', 'available', 'sold', 'archived'])->default('draft');
 
             // Pricing
             $table->decimal('price', 15, 2)->nullable();
@@ -109,7 +109,7 @@ return new class extends Migration
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
 
-            $table->softDeletes();          
+            $table->softDeletes();
             $table->timestamps();
         });
     }

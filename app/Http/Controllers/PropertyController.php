@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Amenity;
 use App\Models\City;
 use App\Models\Property;
+use App\Models\PropertyImage;
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -149,13 +150,6 @@ class PropertyController extends Controller
 
         // If new images are uploaded, delete old ones and add new
         if ($request->hasFile('images')) {
-            // Delete old image files from storage
-            foreach ($property->images as $img) {
-                Storage::disk('public')->delete($img->url);
-            }
-
-            // Delete old DB records
-            $property->images()->delete();
 
             // Upload new images
             foreach ($request->file('images') as $index => $image) {
@@ -176,5 +170,13 @@ class PropertyController extends Controller
     {
         $property->delete();
         return redirect()->route('properties.index')->with('success', 'Property deleted successfully.');
+    }
+
+    public function imageDelete(PropertyImage $image){
+        if ($image->url && Storage::disk('public')->exists($image->url)){
+            Storage::disk('public')->delete($image->url);
+        }
+        $image->delete();
+        return back()->with('success', 'Image deleted successfully');
     }
 }

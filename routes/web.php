@@ -108,6 +108,7 @@ Route::middleware('auth')->group(function () {
         Route::get('show/{property}', 'show')->name('show');
         Route::post('update/{property}', 'update')->name('update');
         Route::post('destroy/{property}', 'destroy')->name('destroy');
+        Route::get('image-delete/{image}', 'imageDelete')->name('image-delete');
     });
 
     Route::controller(\App\Http\Controllers\AmenityController::class)->prefix('amenities')->name('amenities.')->group(function(){

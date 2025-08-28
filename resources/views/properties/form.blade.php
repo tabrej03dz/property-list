@@ -104,11 +104,11 @@
                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Listed By (User ID)</label>
-                    <input type="number" name="listed_by" value="{{ old('listed_by', $property->listed_by ?? '') }}" required
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-                </div>
+{{--                <div>--}}
+{{--                    <label class="block text-sm font-medium text-gray-700">Listed By (User ID)</label>--}}
+{{--                    <input type="number" name="listed_by" value="{{ old('listed_by', $property->listed_by ?? '') }}" required--}}
+{{--                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />--}}
+{{--                </div>--}}
             </div>
 
             <div>
@@ -169,6 +169,61 @@
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
                 <p class="text-xs text-gray-500 mt-1">Upload JPG/PNG images, max 2MB each</p>
             </div>
+
+            @if(isset($property))
+                <div class="flex flex-wrap gap-4">
+                    @foreach($property->images as $image)
+                        <div class="relative w-40 h-40 border rounded overflow-hidden" id="img-card-{{ $image->id }}">
+                            <img src="{{ asset('storage/' . $image->url) }}" alt="" class="w-full h-full object-cover">
+
+                            <!-- Use a button (not <a>) and store the delete URL in a data- attribute -->
+                            <button
+                                type="button"
+                                class="absolute top-1 right-1 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold hover:bg-red-700"
+                                data-delete-url="{{ route('properties.image-delete', $image->id) }}"
+                                data-image-id="{{ $image->id }}"
+                                onclick="removeImage(this)">
+                                &times;
+                            </button>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            <script>
+                async function removeImage(btnEl) {
+                    const url = btnEl.getAttribute('data-delete-url');
+                    const id  = btnEl.getAttribute('data-image-id');
+
+                    if (!url || !id) return;
+
+                    if (!confirm('Are you sure you want to remove this image?')) return;
+
+                    try {
+                        const res = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        const data = await res.json().catch(() => ({}));
+
+                        if (!res.ok || data.ok === false) {
+                            throw new Error(data.message || 'Failed to delete image.');
+                        }
+
+                        // Remove the image card from the DOM
+                        const card = document.getElementById('img-card-' + id);
+                        if (card) card.remove();
+                    } catch (err) {
+                        alert(err.message || 'Something went wrong while deleting the image.');
+                        console.error(err);
+                    }
+                }
+            </script>
+
 
             <div class="pt-6">
                 <button type="submit"

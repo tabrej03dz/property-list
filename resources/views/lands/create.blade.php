@@ -324,10 +324,10 @@
                         <label class="block text-sm font-medium">Gallery (multiple)</label>
                         <input name="gallery_files[]" type="file" multiple class="border p-2 rounded w-full">
                     </div>
-{{--                    <div>--}}
-{{--                        <label class="block text-sm font-medium">Video URL</label>--}}
-{{--                        <input name="video_url" type="url" value="{{ old('video_url') }}" class="border p-2 rounded w-full">--}}
-{{--                    </div>--}}
+                    <div>
+                        <label class="block text-sm font-medium">Upload Video</label>
+                        <input name="video_url" type="file" class="border p-2 rounded w-full">
+                    </div>
 {{--                    <div>--}}
 {{--                        <label class="block text-sm font-medium">Virtual Tour URL</label>--}}
 {{--                        <input name="virtual_tour_url" type="url" value="{{ old('virtual_tour_url') }}" class="border p-2 rounded w-full">--}}

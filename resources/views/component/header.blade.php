@@ -29,6 +29,9 @@
           <a href="{{route('typed-property', 'rent')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
             <i class="ri-community-line mr-2"></i> Rent
           </a>
+            <a href="{{route('landproperty')}}" class="px-3 py-2 text-red-900 hover:bg-red-100/50 rounded-lg font-medium flex items-center">
+                <i class="ri-community-line mr-2"></i> Lands
+            </a>
         </div>
         <div class="md:hidden">
           <button id="menu-toggle" class="text-red-900 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
@@ -83,6 +86,10 @@
         <a href="{{route('rent')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
           <i class="ri-community-line mr-3"></i> Rent
         </a>
+
+          <a href="{{route('landproperty')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
+              <i class="ri-community-line mr-3"></i> Lands
+          </a>
         <div>
           <button id="mobile-category-btn" class="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium flex items-center justify-between" aria-expanded="false">
             <div class="flex items-center">
@@ -99,6 +106,7 @@
 
           </div>
         </div>
+
         <a href="{{route('about')}}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg flex items-center">
           <i class="ri-information-line mr-3"></i> About
         </a>

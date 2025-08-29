@@ -62,15 +62,25 @@ class LandController extends Controller
         }
 
         // uploads
-        [$primary, $gallery] = $this->handleUploads($request);
-        // if ($primary)  $data['primary_image'] = $primary;
-        // if ($gallery)  $data['gallery'] = $gallery;
+//        [$primary, $gallery] = $this->handleUploads($request);
+//        // if ($primary)  $data['primary_image'] = $primary;
+//        // if ($gallery)  $data['gallery'] = $gallery;
+//
+//        [$primary, $galleryFiles] = $this->handleUploads($request);
+//
+//        if ($primary) {
+//            $data['primary_image'] = $primary;
+//        }
 
-        [$primary, $galleryFiles] = $this->handleUploads($request);
+        [$primary, $galleryFiles, $video] = $this->handleUploads($request);
 
         if ($primary) {
             $data['primary_image'] = $primary;
         }
+        if ($video) {
+            $data['video_url'] = $video; // stored path
+        }
+
 
         $land = Land::create($data);
 
@@ -104,6 +114,44 @@ class LandController extends Controller
     }
 
     /* -------------------- UPDATE -------------------- */
+//    public function update(Request $request, Land $land)
+//    {
+//        $data = $this->validateData($request, $land->id);
+//
+//        $data['amenities'] = $this->csvToArray($request->input('amenities_csv'));
+//        $data['tags']      = $this->csvToArray($request->input('tags_csv'));
+//
+//        // slug if changed/title changed
+//        if (isset($data['title']) || isset($data['slug'])) {
+//            $data['slug'] = $this->uniqueSlug($data['slug'] ?? $land->slug, $data['title'] ?? $land->title, $land->id);
+//        }
+//
+//        // auto publish timestamp
+//        if (($data['status'] ?? $land->status) === 'published' && empty($land->published_at) && empty($data['published_at'])) {
+//            $data['published_at'] = now();
+//        }
+//
+//        // uploads (replace if provided)
+//         [$primary, $galleryFiles] = $this->handleUploads($request);
+//
+//        if ($primary) {
+//            $data['primary_image'] = $primary;
+//        }
+//
+//        $land->update($data);
+//
+//        // Replace gallery if new files uploaded
+//    if (!empty($galleryFiles)) {
+//        // $land->images()->delete();
+//        foreach ($galleryFiles as $path) {
+//            $land->images()->create(['path' => $path]);
+//        }
+//    }
+//        return redirect()->route('lands.index')->with('success', 'Land updated.');
+//    }
+
+
+
     public function update(Request $request, Land $land)
     {
         $data = $this->validateData($request, $land->id);
@@ -113,30 +161,69 @@ class LandController extends Controller
 
         // slug if changed/title changed
         if (isset($data['title']) || isset($data['slug'])) {
-            $data['slug'] = $this->uniqueSlug($data['slug'] ?? $land->slug, $data['title'] ?? $land->title, $land->id);
+            $data['slug'] = $this->uniqueSlug(
+                $data['slug'] ?? $land->slug,
+                $data['title'] ?? $land->title,
+                $land->id
+            );
         }
 
         // auto publish timestamp
-        if (($data['status'] ?? $land->status) === 'published' && empty($land->published_at) && empty($data['published_at'])) {
+        if (($data['status'] ?? $land->status) === 'published'
+            && empty($land->published_at)
+            && empty($data['published_at'])) {
             $data['published_at'] = now();
         }
 
         // uploads (replace if provided)
-         [$primary, $galleryFiles] = $this->handleUploads($request);
+        [$primary, $galleryFiles, $newVideoFilePath] = $this->handleUploads($request);
 
         if ($primary) {
             $data['primary_image'] = $primary;
         }
 
+        // ----- VIDEO HANDLING -----
+        $oldVideo = $land->video_url; // could be a URL or a stored file path on 'public' disk
+
+        // 1) If a new video FILE was uploaded, prefer that; store its path in video_url
+        if ($newVideoFilePath) {
+            $data['video_url'] = $newVideoFilePath;
+
+            // if old video was a stored file on 'public', delete it
+            if ($oldVideo && Storage::disk('public')->exists($oldVideo)) {
+                Storage::disk('public')->delete($oldVideo);
+            }
+        }
+        // 2) Else if a new VIDEO URL string was provided, use that and remove old stored file if applicable
+        elseif ($request->filled('video_url')) {
+            $incomingUrl = trim($request->input('video_url'));
+
+            // only act if it is actually changing
+            if ($incomingUrl !== $oldVideo) {
+                // delete old stored file if it exists on 'public'
+                if ($oldVideo && Storage::disk('public')->exists($oldVideo)) {
+                    Storage::disk('public')->delete($oldVideo);
+                }
+                $data['video_url'] = $incomingUrl;
+            }
+        }
+        // Optional: If you want a checkbox to clear the video entirely:
+        // elseif ($request->boolean('remove_video')) {
+        //     if ($oldVideo && Storage::disk('public')->exists($oldVideo)) {
+        //         Storage::disk('public')->delete($oldVideo);
+        //     }
+        //     $data['video_url'] = null;
+        // }
+
         $land->update($data);
 
-        // Replace gallery if new files uploaded
-    if (!empty($galleryFiles)) {
-        // $land->images()->delete();
-        foreach ($galleryFiles as $path) {
-            $land->images()->create(['path' => $path]);
+        // Replace/append gallery if new files uploaded (current code appends)
+        if (!empty($galleryFiles)) {
+            foreach ($galleryFiles as $path) {
+                $land->images()->create(['path' => $path]);
+            }
         }
-    }
+
         return redirect()->route('lands.index')->with('success', 'Land updated.');
     }
 
@@ -251,7 +338,7 @@ class LandController extends Controller
             'gallery_files'      => 'nullable|array',
             'gallery_files.*'    => 'nullable|image|max:5120',
 
-            'video_url'       => 'nullable|url|max:2048',
+            'video_url'       => 'nullable|file',
             'virtual_tour_url'=> 'nullable|url|max:2048',
 
             'address_line'    => 'nullable|string|max:255',
@@ -297,21 +384,51 @@ class LandController extends Controller
         return $cand;
     }
 
+//    private function handleUploads(Request $request): array
+//    {
+//        $primary = null; $gallery = null;
+//
+//        if ($request->hasFile('primary_image_file')) {
+//            $primary = $request->file('primary_image_file')->store('lands', 'public');
+//        }
+//        if ($request->hasFile('gallery_files')) {
+//            $gallery = [];
+//            foreach ($request->file('gallery_files') as $file) {
+//                if ($file) $gallery[] = $file->store('lands','public');
+//            }
+//        }
+//        return [$primary, $gallery];
+//    }
+
     private function handleUploads(Request $request): array
     {
-        $primary = null; $gallery = null;
+        $primary = null;
+        $gallery = null;
+        $video   = null;
 
         if ($request->hasFile('primary_image_file')) {
             $primary = $request->file('primary_image_file')->store('lands', 'public');
         }
+
         if ($request->hasFile('gallery_files')) {
             $gallery = [];
             foreach ($request->file('gallery_files') as $file) {
-                if ($file) $gallery[] = $file->store('lands','public');
+                if ($file) {
+                    $gallery[] = $file->store('lands', 'public');
+                }
             }
         }
-        return [$primary, $gallery];
+
+        // Accept a direct video upload (e.g., MP4)
+        if ($request->hasFile('video_url')) {
+            $video = $request->file('video_url')->store('lands/videos', 'public');
+        }
+
+        return [$primary, $gallery, $video];
     }
+
+
+
 
     private function safeDelete(?string $path): void
     {

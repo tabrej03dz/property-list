@@ -26,7 +26,7 @@ Route::get('/rent', [HomeController::class, 'rent'])->name('rent');
 //Route::get('/villa', [HomeController::class, 'villa'])->name('villa');
 Route::get('/category-properties/{propertyType}', [HomeController::class, 'categoryProperties'])->name('category-properties');
 Route::get('/landproperty', [HomeController::class, 'landproperty'])->name('landproperty');
-Route::get('/land-details/{land}', [HomeController::class, 'landDetails'])->name('land.details');
+Route::get('/land-details/{land}/{contact?}', [HomeController::class, 'landDetails'])->name('land.details');
 Route::post('/land-enquiry/{land}', [LandController::class, 'landEnquiry'])->name('land.enquiry');
 
 // Route::get('/land', [HomeController::class, 'land'])->name('land');

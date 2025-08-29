@@ -204,8 +204,8 @@ class HomeController extends Controller
     }
 
 
-    public function landDetails(Land $land){
-        return view('frontend.land-details', compact('land'));
+    public function landDetails(Land $land, $contact = null){
+        return view('frontend.land-details', compact('land', 'contact'));
     }
 }
 

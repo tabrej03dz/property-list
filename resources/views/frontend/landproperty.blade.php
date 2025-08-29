@@ -28,7 +28,7 @@
                 <div
                     class="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
+                        <img src="{{asset('storage/'. $land->primary_image)}}"
                             class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" />
                         <span
                             class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">For
@@ -67,10 +67,10 @@
                             </div>
                             <div class="flex justify-center mt-10">
 
-                                <button
+                                <a href="{{ route('land.details', ['land' => $land->id, 'contact' => '#contact']) }}"
                                     class="px-6 py-3 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition">
                                     Contact Agent
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -229,7 +229,6 @@
                 {{-- Media & Documents & SEO --}}
                 <div class="bg-white rounded-2xl shadow p-6">
                     <h3 class="text-lg font-semibold text-sky-700 mb-4">Media & SEO</h3>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                         <div>
                             <p class="font-medium text-slate-700 mb-2">Primary Image</p>
@@ -241,8 +240,8 @@
                         <div>
                             <p class="font-medium text-slate-700 mb-2">Video URL</p>
                             @if($land->video_url)
-                                <a href="{{ $land->video_url }}" target="_blank" class="text-sky-600 hover:underline break-all">
-                                    {{ $land->video_url }}
+                                <a href="{{ asset('storage/'. $land->video_url) }}" target="_blank" class="text-sky-600 hover:underline break-all">
+                                    Video
                                 </a>
                             @else
                                 <span class="text-slate-500">N/A</span>
@@ -361,16 +360,16 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('land.enquiry', $land->id) }}" method="POST" class="grid grid-cols-1 gap-4">
+                    <form action="{{ route('land.enquiry', $land->id) }}" id="contact" method="POST" class="grid grid-cols-1 gap-4">
                         @csrf
                         {{-- Polymorphic target (using morph map alias if configured) --}}
                         {{-- <input type="hidden" name="enquirable_type" value="land">
                         <input type="hidden" name="enquirable_id" value="{{ $land->id }}"> --}}
 
-                        <div>
+                        <div >
                             <label class="block text-sm font-medium text-gray-700">Name</label>
                             <input type="text" name="name" value="{{ old('name', auth()->user()->name ?? '') }}"
-                                   class="mt-1 w-full rounded-lg border-gray-300 focus:border-sky-500 focus:ring-sky-500"
+                                   class="mt-1 w-full rounded-lg border-gray-300 focus:border-sky-500 focus:ring-sky-500 {{$contact ? 'focused' : ''}} "
                                    required>
                             @error('name') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                         </div>
